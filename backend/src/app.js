@@ -1,18 +1,31 @@
-import express from "express";
-import cors from "cors";
-import dotenv from "dotenv";
+import express from 'express'
+import cors from 'cors'
+import dotenv from 'dotenv'
 
-dotenv.config();
+dotenv.config()
 
-const app = express();
+import ocrRoute from './routes/ocr.route.js'
+import evaluateRoute from './routes/evaluate.route.js'
 
-app.use(cors());
-app.use(express.json());
+const app = express()
 
-app.get("/", (req, res) => {
-  res.send("Backend Running 🚀");
-});
+app.use(cors({
+  origin: ['http://localhost:3000', 'http://localhost:5173'],
+  credentials: true
+}))
 
-app.listen(5000, () => {
-  console.log("Server running on port 5000");
-});
+app.use(express.json())
+
+
+app.use('/api/ocr', ocrRoute)
+app.use('/api', evaluateRoute)
+
+
+app.get('/', (req, res) => {
+  res.json({ message: 'AI Exam Evaluator Backend Running' })
+})
+
+const PORT = process.env.PORT || 3000
+app.listen(PORT, () => {
+  console.log(`✅ Server running on http://localhost:${PORT}`)
+})
