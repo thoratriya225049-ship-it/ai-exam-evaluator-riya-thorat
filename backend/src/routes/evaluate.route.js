@@ -1,14 +1,15 @@
-
+import dotenv from 'dotenv'
+dotenv.config()
 import express from 'express'
 import multer from 'multer'
-import Tesseract from 'tesseract.js'
-import axios from 'axios'
 import path from 'path'
+import fs from 'fs'
 import { fileURLToPath } from 'url'
+import { GoogleGenerativeAI } from '@google/generative-ai'
 
 const router = express.Router()
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY)
 
 const storage = multer.diskStorage({
   destination: path.join(__dirname, '../../uploads/'),
@@ -19,84 +20,50 @@ const storage = multer.diskStorage({
 const upload = multer({ storage })
 
 const callAI = async (prompt) => {
-
-  // Try Sarvam AI first
-  try {
-    console.log('🤖 Calling Sarvam AI...')
-    const response = await axios.post(
-      'https://api.sarvam.ai/v1/chat/completions',
-      {
-        model: "sarvam-2b-v0.5",
-        messages: [
-          {
-            role: "system",
-            content: "You are a strict Maharashtra SSC/HSC board examiner. Always respond in valid JSON only."
-          },
-          {
-            role: "user",
-            content: prompt
-          }
-        ],
-        max_tokens: 600,
-        temperature: 0.3
-      },
-      {
-        headers: {
-          'Authorization': `Bearer ${process.env.SARVAM_API_KEY}`,
-          'Content-Type': 'application/json'
-        },
-        timeout: 15000
-      }
-    )
-    console.log(' Sarvam AI responded')
-    return response.data.choices[0].message.content
-
-  } catch (sarvamError) {
-  
-    console.log(' Sarvam failed:', sarvamError.message)
-    console.log(' Trying Gemini backup...')
-
-    const geminiResponse = await axios.post(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${process.env.GEMINI_API_KEY}`,
-      {
-        contents: [{
-          parts: [{ text: prompt }]
-        }],
-        generationConfig: {
-          temperature: 0.3,
-          maxOutputTokens: 600
-        }
-      },
-      { timeout: 15000 }
-    )
-
-    console.log(' Gemini responded')
-    return geminiResponse.data.candidates[0].content.parts[0].text
-  }
+  console.log('Calling Gemini AI for evaluation...')
+  const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' })
+  const result = await model.generateContent(prompt)
+  const text = result.response.text()
+  console.log('Gemini evaluation responded')
+  return text
 }
-
 
 const buildPrompt = (subject, questionText, modelAnswer, studentAnswer, maxMarks) => {
   return `
-You are a strict but fair examiner for Maharashtra SSC Board ${subject} examination.
+You are a STRICT examiner for Maharashtra SSC Board ${subject} examination.
 
 QUESTION: ${questionText}
 
-MODEL ANSWER (Correct Answer): 
+MODEL ANSWER (Correct Answer):
 ${modelAnswer}
 
-STUDENT'S ANSWER (Extracted from handwriting): 
+STUDENT'S ANSWER (Extracted from handwriting):
 ${studentAnswer}
 
 MAXIMUM MARKS: ${maxMarks}
 
-EVALUATION INSTRUCTIONS:
-- Compare student answer with model answer carefully
-- Give marks based on how many key points are covered
-- Be strict but fair
-- Consider partial marks for partial answers
+STRICT EVALUATION RULES:
+- Only give full marks if student answer covers ALL key points in model answer
+- Deduct marks for every missing key point
+- Deduct marks for every incorrect statement
+- Partial answers get partial marks ONLY
+- If student covers 50% of points, give 50% of marks
+- If student covers 80% of points, give 80% of marks
+- Be STRICT - do not give benefit of doubt
+- Compare ONLY with the model answer provided
 
-RESPOND ONLY IN THIS EXACT JSON FORMAT (no other text):
+MARKING SCHEME:
+- Count total key points in model answer
+- Count how many key points student covered
+- marks = (points covered / total points) * ${maxMarks}
+- Round to nearest 0.5
+
+KEY POINTS RULES:
+- key_points_covered: List EVERY point the student got correct, separated by commas. Never leave empty.
+- key_points_missed: List EVERY point the student missed, separated by commas. Never leave empty.
+
+IMPORTANT: Respond with ONLY the raw JSON object below. No markdown, no code fences, no backticks, no explanation. Start your response with { and end with }
+
 {
   "marks": <number between 0 and ${maxMarks}>,
   "feedback": "<2-3 sentences about what student did well and what was missing>",
@@ -104,18 +71,16 @@ RESPOND ONLY IN THIS EXACT JSON FORMAT (no other text):
   "confidence": "<HIGH or MEDIUM or LOW>",
   "confidence_reason": "<why you gave this confidence level>",
   "improvements": "<specific things student should add to get full marks>",
-  "key_points_covered": "<which key points from model answer were in student answer>",
-  "key_points_missed": "<which key points were missing>"
+  "key_points_covered": "<comma separated list of key points student covered>",
+  "key_points_missed": "<comma separated list of key points student missed>"
 }
 `
 }
-
 
 router.post('/full-evaluate', upload.single('answerSheet'), async (req, res) => {
   try {
     const { modelAnswer, maxMarks, subject, questionText } = req.body
 
-    // ── Validation ──
     if (!req.file) {
       return res.status(400).json({
         success: false,
@@ -130,17 +95,19 @@ router.post('/full-evaluate', upload.single('answerSheet'), async (req, res) => 
       })
     }
 
- 
-    console.log('\n STEP 1: Extracting text from image...')
-    const ocrResult = await Tesseract.recognize(
-      req.file.path,
-      'eng',
-      { logger: m => process.stdout.write('.') }
-    )
-    const studentAnswer = ocrResult.data.text.trim()
+    console.log('\n STEP 1: Extracting text from image using Gemini Vision...')
+    const imageData = fs.readFileSync(req.file.path)
+    const base64Image = imageData.toString('base64')
+
+    const visionModel = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' })
+    const ocrResult = await visionModel.generateContent([
+      'Extract all handwritten text exactly as written from this answer sheet. Return only the extracted text, nothing else.',
+      { inlineData: { data: base64Image, mimeType: req.file.mimetype } }
+    ])
+
+    const studentAnswer = ocrResult.response.text().trim()
     console.log('\n OCR Complete')
     console.log('Extracted:', studentAnswer.substring(0, 100) + '...')
-
 
     if (!studentAnswer || studentAnswer.length < 5) {
       return res.json({
@@ -162,32 +129,39 @@ router.post('/full-evaluate', upload.single('answerSheet'), async (req, res) => 
       })
     }
 
-    console.log('\n STEP 2: Sending to AI for evaluation...')
-    const prompt = buildPrompt(
-      subject,
-      questionText,
-      modelAnswer,
-      studentAnswer,
-      maxMarks
-    )
+    console.log('\n STEP 2: Sending to Gemini for evaluation...')
+    const prompt = buildPrompt(subject, questionText, modelAnswer, studentAnswer, maxMarks)
     const aiResponse = await callAI(prompt)
+    console.log('AI Raw Response:', aiResponse.substring(0, 200))
 
-    
     let evaluation
     try {
-     
-      const jsonMatch = aiResponse.match(/\{[\s\S]*\}/)
+      const cleaned = aiResponse
+        .replace(/```json/g, '')
+        .replace(/```/g, '')
+        .replace(/^\s*`+/g, '')
+        .replace(/`+\s*$/g, '')
+        .trim()
+
+      const jsonMatch = cleaned.match(/\{[\s\S]*\}/)
       if (!jsonMatch) throw new Error('No JSON found')
       evaluation = JSON.parse(jsonMatch[0])
       evaluation.maxMarks = parseInt(maxMarks)
 
-      
       if (evaluation.marks > parseInt(maxMarks)) {
         evaluation.marks = parseInt(maxMarks)
       }
+
+      // Ensure key points are never empty
+      if (!evaluation.key_points_covered || evaluation.key_points_covered.trim() === '') {
+        evaluation.key_points_covered = 'See reasoning for details'
+      }
+      if (!evaluation.key_points_missed || evaluation.key_points_missed.trim() === '') {
+        evaluation.key_points_missed = 'See reasoning for details'
+      }
+
     } catch (parseError) {
       console.error('JSON Parse Error:', parseError.message)
-      
       evaluation = {
         marks: 0,
         maxMarks: parseInt(maxMarks),
@@ -201,8 +175,7 @@ router.post('/full-evaluate', upload.single('answerSheet'), async (req, res) => 
       }
     }
 
-    
-    console.log('\n✅ STEP 3: Evaluation complete!')
+    console.log('\n STEP 3: Evaluation complete!')
     console.log(`Marks: ${evaluation.marks}/${maxMarks}`)
 
     res.json({
@@ -214,7 +187,7 @@ router.post('/full-evaluate', upload.single('answerSheet'), async (req, res) => 
     })
 
   } catch (error) {
-    console.error('\n❌ Error:', error.message)
+    console.error('\n Error:', error.message)
     res.status(500).json({
       success: false,
       error: error.message

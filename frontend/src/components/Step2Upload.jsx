@@ -38,7 +38,7 @@ const Step2Upload = ({
 
       // Send to backend
       const response = await axios.post(
-        'http://localhost:3000/api/full-evaluate',
+       'http://localhost:3000/api/full-evaluate',
         data,
         { headers: { 'Content-Type': 'multipart/form-data' } }
       )
@@ -76,7 +76,7 @@ const Step2Upload = ({
           </div>
         ) : (
           <div className="upload-placeholder">
-            <span className="upload-icon">📸</span>
+            <span className="upload-icon"></span>
             <p className="upload-text">Click to upload answer sheet</p>
             <p className="upload-hint">JPG or PNG • Clear photo works best</p>
           </div>

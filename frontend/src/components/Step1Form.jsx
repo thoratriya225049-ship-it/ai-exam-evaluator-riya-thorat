@@ -15,7 +15,7 @@ const Step1Form = ({ formData, setFormData, onNext, error, setError }) => {
 
   return (
     <div className="step-content">
-      <h2>📋 Step 1: Enter Exam Details</h2>
+      <h2>Step 1: Enter Exam Details</h2>
       <p className="subtitle">
         Enter the question and correct model answer.
         AI will compare the student's answer against this.
@@ -24,18 +24,21 @@ const Step1Form = ({ formData, setFormData, onNext, error, setError }) => {
       {/* Subject */}
       <div className="field">
         <label>Subject</label>
-        <select
-          value={formData.subject}
-          onChange={e => setFormData({ ...formData, subject: e.target.value })}
-        >
-          <option>English</option>
-          <option>Science</option>
-          <option>Mathematics</option>
-          <option>History</option>
-          <option>Geography</option>
-          <option>Hindi</option>
-          <option>Marathi</option>
-        </select>
+        <div className="select-wrapper">
+          <select
+            value={formData.subject}
+            onChange={e => setFormData({ ...formData, subject: e.target.value })}
+          >
+            <option value="English">English</option>
+            <option value="Science">Science</option>
+            <option value="Mathematics">Mathematics</option>
+            <option value="History">History</option>
+            <option value="Geography">Geography</option>
+            <option value="Hindi">Hindi</option>
+            <option value="Marathi">Marathi</option>
+          </select>
+          <span className="select-arrow">▼</span>
+        </div>
       </div>
 
       {/* Question */}
@@ -72,7 +75,7 @@ const Step1Form = ({ formData, setFormData, onNext, error, setError }) => {
         />
       </div>
 
-      {error && <p className="error">{error}</p>}
+      {error && <p className="error">⚠️ {error}</p>}
 
       <button className="btn-primary" onClick={handleNext}>
         Next: Upload Answer Sheet →
