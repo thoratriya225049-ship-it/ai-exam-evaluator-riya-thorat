@@ -4,11 +4,16 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 import { GoogleGenerativeAI } from '@google/generative-ai'
 import fs from 'fs'
+import { logger } from '../logger.js'
+import { metrics } from '../metrics.js'
 
 const router = express.Router()
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY)
+
+// ── Multer: jpg/jpeg/png only, max 5 MB ──────────────────────────────────────
+const ALLOWED_MIME = ['image/jpeg', 'image/png', 'image/jpg']
+const MAX_SIZE = 5 * 1024 * 1024
 
 const storage = multer.diskStorage({
   destination: path.join(__dirname, '../../uploads/'),
@@ -17,25 +22,44 @@ const storage = multer.diskStorage({
   }
 })
 
-const upload = multer({
-  storage,
-  fileFilter: (req, file, cb) => {
-    const allowed = ['image/jpeg', 'image/png', 'image/jpg']
-    if (allowed.includes(file.mimetype)) {
-      cb(null, true)
-    } else {
-      cb(new Error('Only JPG and PNG images allowed'))
-    }
+const fileFilter = (req, file, cb) => {
+  if (ALLOWED_MIME.includes(file.mimetype)) {
+    cb(null, true)
+  } else {
+    const err = new Error('Only JPG and PNG images allowed.')
+    err.code = 'INVALID_TYPE'
+    cb(err, false)
   }
-})
+}
 
-router.post('/extract', upload.single('answerSheet'), async (req, res) => {
+const upload = multer({ storage, fileFilter, limits: { fileSize: MAX_SIZE } })
+
+// Wraps multer with proper HTTP status codes
+const uploadSingle = (req, res, next) => {
+  upload.single('answerSheet')(req, res, (err) => {
+    if (!err) return next()
+    if (err.code === 'LIMIT_FILE_SIZE') {
+      return res.status(413).json({ success: false, error: 'File too large. Maximum size is 5 MB.' })
+    }
+    if (err.code === 'INVALID_TYPE') {
+      return res.status(415).json({ success: false, error: err.message })
+    }
+    return res.status(400).json({ success: false, error: err.message })
+  })
+}
+
+router.post('/extract', uploadSingle, async (req, res) => {
+  const rid = req.requestId || 'unknown'
+  metrics.inc('ocrRequests')
+
   try {
     if (!req.file) {
-      return res.status(400).json({ success: false, error: 'No image uploaded' })
+      logger.warn(rid, 'ocr_no_file')
+      return res.status(400).json({ success: false, error: 'No image uploaded.' })
     }
 
-    console.log('Reading image:', req.file.filename)
+    logger.info(rid, 'ocr_start', { file: req.file.filename, size: req.file.size })
+    const start = Date.now()
 
     const imageData = fs.readFileSync(req.file.path)
     const base64Image = imageData.toString('base64')
@@ -48,12 +72,23 @@ router.post('/extract', upload.single('answerSheet'), async (req, res) => {
     ])
 
     const extractedText = result.response.text()
-    console.log('Text extracted successfully')
+    const ocrMs = Date.now() - start
+    metrics.recordDuration('ocr', ocrMs)
 
-    res.json({ success: true, text: extractedText, confidence: 90 })
+    // Estimate confidence from extracted text length
+    const confidence = extractedText.length > 200 ? 90
+      : extractedText.length > 50 ? 65 : 30
+
+    logger.info(rid, 'ocr_complete', {
+      textLength: extractedText.length,
+      confidence,
+      ocr_ms: ocrMs,
+    })
+
+    res.json({ success: true, text: extractedText, confidence, ocr_ms: ocrMs })
 
   } catch (error) {
-    console.error('OCR Error:', error.message)
+    logger.error(rid, 'ocr_error', { message: error.message })
     res.status(500).json({ success: false, error: error.message })
   }
 })

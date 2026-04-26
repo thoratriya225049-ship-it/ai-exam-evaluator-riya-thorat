@@ -1,6 +1,11 @@
 const Step3Results = ({ result, onReset }) => {
-  const { results, studentName, className, subject, language, chapter, questionPaper, totalMarks, totalObtained } = result
+  const {
+    results, studentName, className, subject, language,
+    chapter, questionPaper, totalMarks, totalObtained,
+    ocrConfidence,
+  } = result
 
+  // ── jsPDF loader ────────────────────────────────────────────────────────────
   const loadJsPDF = () => {
     return new Promise((resolve, reject) => {
       if (window.jspdf) { resolve(window.jspdf.jsPDF); return }
@@ -200,18 +205,20 @@ const Step3Results = ({ result, onReset }) => {
     doc.save(filename)
   }
 
+  // ── Helpers ─────────────────────────────────────────────────────────────────
   const percentage = (totalObtained / totalMarks) * 100
   const overallColor = percentage >= 70 ? '#16A34A' : percentage >= 35 ? '#D97706' : '#DC2626'
-
   const confidenceColor = { HIGH: '#16A34A', MEDIUM: '#D97706', LOW: '#DC2626' }
 
   const formatPoints = (points) => {
-    if (!points || points === 'Unable to determine' || points === 'See reasoning for details' || points === 'None' || String(points).trim() === '') {
+    if (!points || points === 'Unable to determine' || points === 'See reasoning for details'
+      || points === 'None' || String(points).trim() === '') {
       return <p style={{ color: '#9CA3AF', fontSize: '13px' }}>See reasoning section for details</p>
     }
     const str = String(points)
     let items = []
     if (str.includes('\n')) {
+      // eslint-disable-next-line no-useless-escape
       items = str.split('\n').map(p => p.replace(/^[\d\-\.\u2022\*]+\s*/, '').trim()).filter(Boolean)
     } else if (str.includes(',')) {
       items = str.split(',').map(p => p.trim()).filter(Boolean)
@@ -227,10 +234,14 @@ const Step3Results = ({ result, onReset }) => {
     day: '2-digit', month: 'long', year: 'numeric'
   })
 
+  // Count how many questions have LOW confidence
+  const lowConfidenceCount = results.filter(r => r.evaluation.confidence === 'LOW').length
+
   return (
     <div className="step-content">
       <div id="results-content">
 
+        {/* ── Official Header ── */}
         <div className="official-header">
           <div className="official-header-top">
             <div className="official-emblem">
@@ -250,6 +261,35 @@ const Step3Results = ({ result, onReset }) => {
           </div>
         </div>
 
+        {/* ── Global LOW confidence warning banner ── */}
+        {lowConfidenceCount > 0 && (
+          <div className="confidence-warning-banner">
+            <div className="confidence-warning-icon">!</div>
+            <div>
+              <strong>Manual Review Recommended</strong>
+              <p>
+                {lowConfidenceCount} question{lowConfidenceCount > 1 ? 's have' : ' has'} low AI
+                confidence. Please verify {lowConfidenceCount > 1 ? 'these results' : 'this result'} manually
+                before sharing with the student.
+              </p>
+            </div>
+          </div>
+        )}
+
+        {/* ── Confidence Legend ── */}
+        <div className="confidence-legend">
+          <span className="legend-title">Confidence Guide:</span>
+          <span className="legend-item legend-high">HIGH — AI is certain</span>
+          <span className="legend-item legend-medium">MEDIUM — AI is fairly sure</span>
+          <span className="legend-item legend-low">LOW — Manual review needed</span>
+          {ocrConfidence && (
+            <span className="legend-ocr">
+              OCR Quality: <strong>{ocrConfidence}</strong>
+            </span>
+          )}
+        </div>
+
+        {/* ── Student Details ── */}
         <div className="student-detail-card">
           <div className="student-detail-grid">
             <div className="student-detail-item">
@@ -279,6 +319,7 @@ const Step3Results = ({ result, onReset }) => {
           </div>
         </div>
 
+        {/* ── Score Card ── */}
         <div className="board-score-card" style={{ borderColor: overallColor }}>
           <div className="board-score-top">
             <div className="score-left">
@@ -304,6 +345,7 @@ const Step3Results = ({ result, onReset }) => {
           </div>
         </div>
 
+        {/* ── Summary Table ── */}
         <div className="result-card">
           <h3>Question-wise Marks Summary</h3>
           <table className="summary-table">
@@ -340,6 +382,7 @@ const Step3Results = ({ result, onReset }) => {
           </table>
         </div>
 
+        {/* ── Per-question Results ── */}
         {results.map((r, index) => (
           <div key={index} className="question-result-section">
             <div className="question-result-header">
@@ -347,6 +390,37 @@ const Step3Results = ({ result, onReset }) => {
               <span className="question-marks-badge" style={{ backgroundColor: overallColor }}>
                 {r.evaluation.marks}/{r.evaluation.maxMarks}
               </span>
+            </div>
+
+            {/* LOW confidence inline warning */}
+            {r.evaluation.confidence === 'LOW' && (
+              <div className="low-confidence-alert">
+                Low confidence — manual review recommended for this question.
+              </div>
+            )}
+
+            {/* AI metadata row */}
+            <div className="ai-meta-row">
+              {r.evaluation.ai_provider && (
+                <span className="ai-provider-tag">
+                  AI: {r.evaluation.ai_provider === 'gemini' ? 'Gemini' : 'Sarvam'}
+                </span>
+              )}
+              {r.evaluation.confidence && (
+                <span
+                  className="confidence-tag"
+                  style={{ backgroundColor: confidenceColor[r.evaluation.confidence] + '20',
+                           color: confidenceColor[r.evaluation.confidence],
+                           border: `1px solid ${confidenceColor[r.evaluation.confidence]}40` }}
+                >
+                  Confidence: {r.evaluation.confidence}
+                </span>
+              )}
+              {r.evaluation.timing?.total_ms && (
+                <span className="timing-tag">
+                  {(r.evaluation.timing.total_ms / 1000).toFixed(1)}s
+                </span>
+              )}
             </div>
 
             <p className="question-text">{r.question}</p>
