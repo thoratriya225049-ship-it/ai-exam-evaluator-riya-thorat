@@ -211,19 +211,24 @@ const Step3Results = ({ result, onReset }) => {
   const confidenceColor = { HIGH: '#16A34A', MEDIUM: '#D97706', LOW: '#DC2626' }
 
   const formatPoints = (points) => {
-    if (!points || points === 'Unable to determine' || points === 'See reasoning for details'
-      || points === 'None' || String(points).trim() === '') {
+    // Only show fallback for truly empty/missing values.
+    // "None — all key points covered" is a valid AI response and must display.
+    const EMPTY_VALUES = ['Unable to determine', 'See reasoning for details', 'See reasoning section for details']
+    const str = String(points || '').trim()
+    if (!str || EMPTY_VALUES.includes(str)) {
       return <p style={{ color: '#9CA3AF', fontSize: '13px' }}>See reasoning section for details</p>
     }
-    const str = String(points)
     let items = []
     if (str.includes('\n')) {
-      // eslint-disable-next-line no-useless-escape
       items = str.split('\n').map(p => p.replace(/^[\d\-\.\u2022\*]+\s*/, '').trim()).filter(Boolean)
     } else if (str.includes(',')) {
       items = str.split(',').map(p => p.trim()).filter(Boolean)
     } else {
-      items = [str.trim()]
+      items = [str]
+    }
+    items = items.filter(Boolean)
+    if (items.length === 0) {
+      return <p style={{ color: '#9CA3AF', fontSize: '13px' }}>See reasoning section for details</p>
     }
     return items.map((point, index) => (
       <p key={index} style={{ marginBottom: '5px', fontSize: '13px', lineHeight: '1.5' }}>• {point}</p>

@@ -1,31 +1,90 @@
-const Step1Form = ({ formData, setFormData, onNext, error, setError }) => {
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 
-  const addQuestion = () => {
+const CHAPTERS = {
+  Science: ['Ch 1 — Life Processes', 'Ch 2 — Control & Coordination', 'Ch 3 — Reproduction', 'Ch 4 — Heredity', 'Ch 5 — Light', 'Ch 6 — Electricity', 'Ch 7 — Magnetic Effects'],
+  Mathematics: ['Ch 1 — Real Numbers', 'Ch 2 — Polynomials', 'Ch 3 — Linear Equations', 'Ch 4 — Quadratic Equations', 'Ch 5 — Arithmetic Progressions', 'Ch 6 — Triangles', 'Ch 7 — Coordinate Geometry'],
+  English: ['Ch 1 — A Letter to God', 'Ch 2 — Nelson Mandela', 'Ch 3 — Two Stories about Flying', 'Ch 4 — From the Diary of Anne Frank', 'Ch 5 — Glimpses of India', 'Ch 6 — Mijbil the Otter'],
+  Hindi: ['Ch 1 — Surdas', 'Ch 2 — Tulsidas', 'Ch 3 — Dev', 'Ch 4 — Jaishankar Prasad', 'Ch 5 — Sumitranandan Pant', 'Ch 6 — Mahadevi Verma'],
+  Marathi: ['Ch 1 — Mazha Avadta Shikshak', 'Ch 2 — Shyam Chi Aai', 'Ch 3 — Chhatrapati Shivaji Maharaj', 'Ch 4 — Sant Tukaram', 'Ch 5 — Sant Dnyaneshwar'],
+  History: ['Ch 1 — Historiography', 'Ch 2 — Indian Freedom Struggle', 'Ch 3 — World Wars', 'Ch 4 — United Nations', 'Ch 5 — Indian Constitution'],
+  Geography: ['Ch 1 — Resources', 'Ch 2 — Forest & Wildlife', 'Ch 3 — Water Resources', 'Ch 4 — Agriculture', 'Ch 5 — Minerals & Energy'],
+  Economics: ['Ch 1 — Development', 'Ch 2 — Sectors of Economy', 'Ch 3 — Money & Credit', 'Ch 4 — Globalisation', 'Ch 5 — Consumer Rights'],
+  Biology: ['Ch 1 — Cell Biology', 'Ch 2 — Plant Physiology', 'Ch 3 — Human Physiology', 'Ch 4 — Genetics', 'Ch 5 — Evolution'],
+  Physics: ['Ch 1 — Motion', 'Ch 2 — Force & Laws', 'Ch 3 — Gravitation', 'Ch 4 — Work & Energy', 'Ch 5 — Sound'],
+  Chemistry: ['Ch 1 — Chemical Reactions', 'Ch 2 — Acids, Bases & Salts', 'Ch 3 — Metals & Non-metals', 'Ch 4 — Carbon Compounds', 'Ch 5 — Periodic Classification'],
+}
+
+const EXAM_TYPES = ['Unit Test 1', 'Unit Test 2', 'Semester 1', 'Semester 2', 'Final Exam', 'Practice Test', 'Revision Test']
+const MAX_LESSON = 500
+
+const Step1Form = ({ formData, setFormData, onNext, error, setError }) => {
+  const [templates, setTemplates] = useState([])
+  const [templateName, setTemplateName] = useState('')
+  const [showSaveTemplate, setShowSaveTemplate] = useState(false)
+  const [templateMsg, setTemplateMsg] = useState('')
+
+  useEffect(() => {
+    axios.get('http://localhost:3000/api/templates')
+      .then(res => setTemplates(res.data.templates || []))
+      .catch(() => setTemplates([]))
+  }, [])
+
+  const loadTemplate = (templateId) => {
+    if (!templateId) return
+    const t = templates.find(t => t.id === templateId)
+    if (!t) return
     setFormData({
       ...formData,
-      questions: [
-        ...formData.questions,
-        { question: '', modelAnswer: '', maxMarks: 5 }
-      ]
+      className: t.grade || formData.className,
+      subject: t.subject || formData.subject,
+      chapter: t.chapter || '',
+      examType: t.examType || '',
+      questions: t.questions || formData.questions,
     })
+    setTemplateMsg(`✅ Template "${t.name}" loaded!`)
+    setTimeout(() => setTemplateMsg(''), 3000)
+  }
+
+  const saveTemplate = async () => {
+    if (!templateName.trim()) { setTemplateMsg('❌ Please enter a template name'); return }
+    try {
+      await axios.post('http://localhost:3000/api/templates', {
+        name: templateName.trim(),
+        grade: formData.className,
+        subject: formData.subject,
+        chapter: formData.chapter,
+        examType: formData.examType,
+        questions: formData.questions,
+      })
+      setTemplateMsg(`✅ Template "${templateName}" saved!`)
+      setTemplateName('')
+      setShowSaveTemplate(false)
+      const res = await axios.get('http://localhost:3000/api/templates')
+      setTemplates(res.data.templates || [])
+      setTimeout(() => setTemplateMsg(''), 3000)
+    } catch {
+      setTemplateMsg('❌ Failed to save template')
+    }
+  }
+
+  const addQuestion = () => {
+    setFormData({ ...formData, questions: [...formData.questions, { question: '', modelAnswer: '', maxMarks: 5 }] })
   }
 
   const removeQuestion = (index) => {
     if (formData.questions.length === 1) return
-    const updated = formData.questions.filter((_, i) => i !== index)
-    setFormData({ ...formData, questions: updated })
+    setFormData({ ...formData, questions: formData.questions.filter((_, i) => i !== index) })
   }
 
   const updateQuestion = (index, field, value) => {
-    const updated = formData.questions.map((q, i) =>
-      i === index ? { ...q, [field]: value } : q
-    )
+    const updated = formData.questions.map((q, i) => i === index ? { ...q, [field]: value } : q)
     setFormData({ ...formData, questions: updated })
   }
 
   const handleNext = () => {
     if (!formData.studentName.trim()) { setError('Please enter student name'); return }
-    if (!formData.chapter.trim()) { setError('Please enter chapter name'); return }
+    if (!formData.chapter.trim()) { setError('Please select or enter a chapter'); return }
     if (!formData.questionPaper.trim()) { setError('Please enter question paper title'); return }
     for (let i = 0; i < formData.questions.length; i++) {
       if (!formData.questions[i].question.trim()) { setError(`Please enter question ${i + 1}`); return }
@@ -34,6 +93,11 @@ const Step1Form = ({ formData, setFormData, onNext, error, setError }) => {
     setError('')
     onNext()
   }
+
+  const chapters = CHAPTERS[formData.subject] || []
+  const totalMarks = formData.questions.reduce((sum, q) => sum + parseInt(q.maxMarks || 0), 0)
+  const lessonLen = formData.lessonContent?.length || 0
+  const lessonOverLimit = lessonLen > MAX_LESSON
 
   return (
     <div className="step-content">
@@ -46,8 +110,46 @@ const Step1Form = ({ formData, setFormData, onNext, error, setError }) => {
         Maharashtra State Board of Secondary &amp; Higher Secondary Education
       </div>
 
-      <div className="section-title">Student Information</div>
+      {/* Fix 5: Template helper text */}
+      <div className="template-section">
+        <div className="template-helper-text">
+          💡 <strong>Templates</strong> save your exam setup (questions + model answers + marks) so you don't need to retype for every student.
+        </div>
+        <div className="template-row">
+          <div className="field" style={{ flex: 1 }}>
+            <label>Load Saved Template</label>
+            <div className="select-wrapper">
+              <select onChange={e => loadTemplate(e.target.value)} defaultValue="">
+                <option value="">— Select a template —</option>
+                {templates.map(t => (
+                  <option key={t.id} value={t.id}>{t.name} ({t.subject} — {t.grade})</option>
+                ))}
+              </select>
+              <span className="select-arrow">▼</span>
+            </div>
+          </div>
+          <button className="btn-save-template" onClick={() => setShowSaveTemplate(!showSaveTemplate)}>
+            💾 Save Template
+          </button>
+        </div>
 
+        {showSaveTemplate && (
+          <div className="save-template-box">
+            <input
+              type="text"
+              placeholder="Template name e.g. Science Unit Test 1"
+              value={templateName}
+              onChange={e => setTemplateName(e.target.value)}
+            />
+            <button className="btn-confirm-save" onClick={saveTemplate}>Save</button>
+          </div>
+        )}
+
+        {templateMsg && <p className="template-msg">{templateMsg}</p>}
+      </div>
+
+      {/* Student Info */}
+      <div className="section-title">Student Information</div>
       <div className="field-row">
         <div className="field">
           <label>Student Full Name</label>
@@ -70,13 +172,13 @@ const Step1Form = ({ formData, setFormData, onNext, error, setError }) => {
         </div>
       </div>
 
+      {/* Exam Info */}
       <div className="section-title">Exam Information</div>
-
       <div className="field-row">
         <div className="field">
           <label>Subject</label>
           <div className="select-wrapper">
-            <select value={formData.subject} onChange={e => setFormData({ ...formData, subject: e.target.value })}>
+            <select value={formData.subject} onChange={e => setFormData({ ...formData, subject: e.target.value, chapter: '' })}>
               <option value="Science">Science</option>
               <option value="Mathematics">Mathematics</option>
               <option value="English">English</option>
@@ -88,6 +190,28 @@ const Step1Form = ({ formData, setFormData, onNext, error, setError }) => {
               <option value="Biology">Biology</option>
               <option value="Physics">Physics</option>
               <option value="Chemistry">Chemistry</option>
+            </select>
+            <span className="select-arrow">▼</span>
+          </div>
+        </div>
+        <div className="field">
+          <label>Exam Type</label>
+          <div className="select-wrapper">
+            <select value={formData.examType} onChange={e => setFormData({ ...formData, examType: e.target.value })}>
+              {EXAM_TYPES.map(t => <option key={t} value={t}>{t}</option>)}
+            </select>
+            <span className="select-arrow">▼</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="field-row">
+        <div className="field">
+          <label>Chapter</label>
+          <div className="select-wrapper">
+            <select value={formData.chapter} onChange={e => setFormData({ ...formData, chapter: e.target.value })}>
+              <option value="">— Select Chapter —</option>
+              {chapters.map(c => <option key={c} value={c}>{c}</option>)}
             </select>
             <span className="select-arrow">▼</span>
           </div>
@@ -105,37 +229,48 @@ const Step1Form = ({ formData, setFormData, onNext, error, setError }) => {
         </div>
       </div>
 
-      <div className="field-row">
-        <div className="field">
-          <label>Chapter</label>
-          <input
-            type="text"
-            placeholder="e.g. Chapter 3 — Life Processes"
-            value={formData.chapter}
-            onChange={e => setFormData({ ...formData, chapter: e.target.value })}
-          />
-        </div>
-        <div className="field">
-          <label>Question Paper Title</label>
-          <input
-            type="text"
-            placeholder="e.g. Unit Test 2 — March 2025"
-            value={formData.questionPaper}
-            onChange={e => setFormData({ ...formData, questionPaper: e.target.value })}
-          />
-        </div>
+      <div className="field">
+        <label>Question Paper Title</label>
+        <input
+          type="text"
+          placeholder="e.g. Unit Test 2 — March 2025"
+          value={formData.questionPaper}
+          onChange={e => setFormData({ ...formData, questionPaper: e.target.value })}
+        />
       </div>
 
+      {/* Fix 4: Lesson content with proper limit feedback */}
       <div className="field">
-        <label>Lesson Content / Textbook Passage <span className="optional-tag">Optional — improves AI accuracy</span></label>
+        <label>
+          Lesson Content / Textbook Passage
+          <span className="optional-tag"> Optional — improves AI accuracy</span>
+        </label>
         <textarea
-          placeholder="Paste relevant textbook content, lesson notes, or subject material here. This helps the AI evaluate answers more accurately against the actual syllabus..."
+          placeholder="Paste relevant textbook content or lesson notes here..."
           value={formData.lessonContent}
           onChange={e => setFormData({ ...formData, lessonContent: e.target.value })}
           rows={4}
         />
+        <div className="lesson-counter-row">
+          <span className={`char-count ${lessonOverLimit ? 'char-over' : ''}`}>
+            {lessonLen} chars typed
+          </span>
+          {lessonOverLimit && (
+            <span className="lesson-limit-msg">
+              ⚠️ Only the first 500 characters will be used for evaluation
+            </span>
+          )}
+        </div>
       </div>
 
+      {/* Total Banner */}
+      <div className="total-marks-banner">
+        <span>Total Questions: {formData.questions.length}</span>
+        <span>Total Marks: {totalMarks}</span>
+        <span>Pass Marks (35%): {Math.ceil(totalMarks * 0.35)}</span>
+      </div>
+
+      {/* Questions */}
       <div className="section-title">Questions &amp; Model Answers</div>
 
       {formData.questions.map((q, index) => (

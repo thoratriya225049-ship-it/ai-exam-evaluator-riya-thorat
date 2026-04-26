@@ -1,0 +1,297 @@
+[
+  {
+    "id": "1777207382807",
+    "savedAt": "2026-04-26T12:43:02.807Z",
+    "studentName": "Ankit Sharma",
+    "className": "10th SSC",
+    "chapter": "Ch 1 — Life Processes",
+    "questionPaper": "march 2026-27",
+    "examType": "",
+    "subject": "Science",
+    "language": "English",
+    "totalMarks": 10,
+    "totalObtained": 9,
+    "ocrConfidence": "HIGH",
+    "questionCount": 2,
+    "results": [
+      {
+        "question": "what is photosynthesis",
+        "studentAnswer": "D.\nAns\n1) Photosynthesis is the process plants use to turn\nsunlight into food\n\nThe formula:\nPlants take in Water and Carbon Dioxide, use Sunlight\nas power, and produces Sugar (energy) and Oxygen.\n\n6CO2 + 6H2O + light → C6H12O6 + 6O2\n\nKey facts\na) Where: It happens in chloroplast\nb) Energy: It uses chlorophyll to trap sunlight\nc) Result: It gives the plant glucose to grow\n                 and releases oxygen for us to breathe...\nd) Provides - Sugar provides energy for repair\ne) Oxygen released from the same tiny holes CO2\nf) Overall process is energy transfer from sun to plant\ng) Sugar molecules store sun's energy for later use.",
+        "evaluation": {
+          "marks": 5,
+          "feedback": "An excellent and comprehensive answer! You have accurately defined photosynthesis, provided the balanced chemical equation, and included all crucial key facts such as the site of reaction, role of chlorophyll, and the importance of its products. Well done!",
+          "reasoning": "1. The student correctly defines photosynthesis as the process plants use to turn sunlight into food. (Definition - 1 point)\n2. The student accurately lists water and carbon dioxide as reactants and sunlight as the energy source. (Reactants & Energy Source - 1 point)\n3. The student correctly identifies sugar (energy) and oxygen as products. (Products - 1 point)\n4. The balanced chemical equation (6CO2 + 6H2O + light → C6H12O6 + 6O2) is perfectly provided. (Chemical Equation - 1 point)\n5. Key facts are well-enumerated: happening in chloroplasts (site), using chlorophyll to trap sunlight (function of chlorophyll), giving glucose for growth and repair (purpose of sugar), releasing oxygen for breathing and from tiny holes (release/use of oxygen & entry/exit of gases), and overall energy transfer from sun to plant (energy transfer & storage). (Site, Chlorophyll, Purpose of Sugar, Oxygen Release/Entry/Exit, Energy Transfer - 7 distinct details effectively covered as key facts, which sums up to the remaining points for a comprehensive answer).\nAll identified key points from the model answer and expected understanding for the question 'What is photosynthesis?' are covered comprehensively and accurately. Therefore, full marks are awarded.",
+          "confidence": "HIGH",
+          "confidence_reason": "The student's answer is extremely thorough, accurately reflecting all essential components of photosynthesis described in the model answer and implied by the general knowledge expected at the SSC level. All derived key points are explicitly present.",
+          "improvements": "None. The answer is comprehensive and perfectly addresses the question for full marks.",
+          "key_points_covered": "Definition of photosynthesis, Reactants (Water, Carbon Dioxide), Energy Source (Sunlight), Products (Sugar/Glucose, Oxygen), Balanced Chemical Equation, Site of reaction (Chloroplast), Function of Chlorophyll (traps sunlight), Purpose of Sugar (growth, repair, energy storage), Release/Use of Oxygen (for breathing, from tiny holes), Entry/Exit of gases (CO2 enters, O2 exits through tiny holes), Overall process as energy transfer from sun to plant",
+          "key_points_missed": "None — all key points covered",
+          "maxMarks": 5,
+          "ai_provider": "gemini",
+          "timing": {
+            "ocr_ms": 2987,
+            "ai_ms": 16486,
+            "total_ms": 19476
+          }
+        }
+      },
+      {
+        "question": "what is photosynthesis",
+        "studentAnswer": "D.\nAns\n1) Photosynthesis is the process plants use to turn\nsunlight into food\n\nThe formula:\nPlants take in Water and Carbon Dioxide, use Sunlight\nas power, and produces Sugar (energy) and Oxygen.\n\n6CO2 + 6H2O + light → C6H12O6 + 6O2\n\nKey facts\na) Where: It happens in chloroplast\nb) Energy: It uses chlorophyll to trap sunlight\nc) Result: It gives the plant glucose to grow\n                 and releases oxygen for us to breathe...\nd) Provides - Sugar provides energy for repair\ne) Oxygen released from the same tiny holes CO2\nf) Overall process is energy transfer from sun to plant\ng) Sugar molecules store sun's energy for later use.",
+        "evaluation": {
+          "marks": 4,
+          "feedback": "The student has provided an excellent and comprehensive answer covering most aspects of photosynthesis, including the definition, reactants, products, equation, and significance. However, for a perfect score, crucial details regarding the mechanism of water absorption, the chemical reaction itself (breaking down and reorganizing molecules), and the specific role of mitochondria in sugar breakdown need to be included.",
+          "reasoning": "1. The model answer contains 17 distinct key points regarding photosynthesis. \n2. The student's answer accurately covers 13 out of these 17 key points.\n   - Covered points include: definition, CO2 as reactant, H2O as reactant, sunlight as energy source, sugar as product, oxygen as product, the full chemical equation, sugar for growth, sugar for repair, sugar stored for later use, oxygen released from tiny holes, oxygen used by other organisms, and overall energy transfer from sun to plant.\n   - Partially covered: While the student mentioned CO2 entering via tiny holes (implied by oxygen release), they missed the specific detail about water absorption by roots.\n3. The student missed 4 key points:\n   - Specific mention that 'roots are responsible for absorbing water'.\n   - Explicit statement that 'light energy causes a chemical reaction'.\n   - Detail that the reaction 'breaks down molecules of carbon dioxide and water'.\n   - Detail that the reaction 'reorganizes them'.\n   - The specific organelle 'mitochondria' for breaking down sugar into energy.\n4. Marks calculation: (13 points covered / 17 total points) * 5 = 3.8235.\n5. Rounded to the nearest 0.5, the student receives 4.0 marks.",
+          "confidence": "HIGH",
+          "confidence_reason": "I have meticulously broken down the model answer into 17 distinct, enumerable key points and systematically cross-referenced each point with the student's answer. The marking scheme for partial marks and rounding has been strictly applied.",
+          "improvements": "To achieve full marks, the student should add the following details:\n1. Specify that water is absorbed by the roots.\n2. Explain that light energy causes a chemical reaction that breaks down and reorganizes carbon dioxide and water molecules.\n3. Mention that after sugar is produced, it is broken down by the mitochondria to release energy.",
+          "key_points_covered": "Photosynthesis is the process plants use to turn sunlight into food, Plants take in Carbon Dioxide, Plants take in Water, Plants use Sunlight as power, Plants produce Sugar (energy), Plants produce Oxygen, Chemical Equation: 6CO2 + 6H2O + light → C6H12O6 + 6O2, Sugar gives the plant glucose to grow, Sugar provides energy for repair, Sugar molecules store sun's energy for later use, Oxygen released from the same tiny holes CO2 enters, Oxygen is released for us to breathe (used by other organisms), Overall process is energy transfer from sun to plant.",
+          "key_points_missed": "Roots are responsible for absorbing water, Light energy causes a chemical reaction, The chemical reaction breaks down molecules of carbon dioxide and water, The chemical reaction reorganizes molecules of carbon dioxide and water, Sugar is broken down by mitochondria into energy.",
+          "maxMarks": 5,
+          "ai_provider": "gemini",
+          "timing": {
+            "ocr_ms": 2987,
+            "ai_ms": 41987,
+            "total_ms": 61463
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "1777206463867",
+    "savedAt": "2026-04-26T12:27:43.867Z",
+    "studentName": "Vijay Thorat",
+    "className": "10th SSC",
+    "chapter": "Ch 3 — Gravitation",
+    "questionPaper": "sem march 26",
+    "examType": "",
+    "subject": "Physics",
+    "language": "English",
+    "totalMarks": 10,
+    "totalObtained": 9.5,
+    "ocrConfidence": "HIGH",
+    "questionCount": 2,
+    "results": [
+      {
+        "question": "what is photosynthesis",
+        "studentAnswer": "e. D\nans\n1) Photosynthesis is the process plants use to turn\nsunlight into food\nThe Formula:\nPlants take in Water and Carbon Dioxide, use Sunlight\nas power, and produces Sugar (energy) and oxygen.\n6CO₂ + 6H₂O + light → C₆H₁₂O₆ + 6O₂\n\nKey facts\na) Where: It happens in chloroplast\nb) Energy: It uses chlorophyll to trap Sunlight\nc) Result: It gives the plant glucose to grow\nand releases oxygen for us to breathe...\nd) Provides - Sugar provides energy for repair\ne) Oxygen released from the same tiny holes CO₂\nf) Overall process is energy transfer from sun to plant\ng) Sugar molecules store sun's energy for later use.",
+        "evaluation": {
+          "marks": 4.5,
+          "feedback": "Your answer is very thorough, covering most essential aspects of photosynthesis, including the correct definition, reactants, products, chemical equation, and the subsequent use of the products. To achieve full marks, ensure you also explicitly describe the nature of the chemical reaction involved.",
+          "reasoning": "The model answer provides 10 key points defining photosynthesis. The student's answer covered 9 out of these 10 points:\n1.  **Process definition:** Covered ('Photosynthesis is the process plants use to turn sunlight into food' and 'Plants take in Water and Carbon Dioxide, use Sunlight as power, and produces Sugar (energy) and oxygen.').\n2.  **Key inputs (CO2, H2O):** Covered ('Water and Carbon Dioxide').\n3.  **Energy source (Sunlight):** Covered ('sunlight into food', 'Sunlight as power').\n4.  **Key outputs (Sugar, O2):** Covered ('Sugar (energy) and oxygen').\n5.  **Chemical Formula:** Covered (correct equation provided).\n6.  **Purpose/Fate of Sugar:** Covered ('glucose to grow', 'energy for repair', 'store sun's energy for later use').\n7.  **Purpose/Fate of Oxygen:** Covered ('releases oxygen for us to breathe...').\n8.  **Release mechanism of O2:** Covered ('Oxygen released from the same tiny holes CO₂').\n9.  **Overall concept (Energy transfer):** Covered ('Overall process is energy transfer from sun to plant').\n\nThe only key point missed was the explicit description of the *mechanism* where 'light energy causes a chemical reaction that breaks down the molecules of carbon dioxide and water and reorganizes them'. The student implies the process but does not articulate this specific chemical transformation step.\n\nCalculation: (9 points covered / 10 total points) * 5 marks = 4.5 marks.",
+          "confidence": "HIGH",
+          "confidence_reason": "All key points from the model answer were clearly identified and cross-referenced with the student's response. The marking scheme was strictly applied to count covered and missed points, leading to a direct calculation of marks.",
+          "improvements": "For full marks, explicitly add that light energy causes a chemical reaction that breaks down the molecules of carbon dioxide and water and reorganizes them to produce sugar and oxygen.",
+          "maxMarks": 5,
+          "key_points_covered": "See reasoning for details",
+          "key_points_missed": "See reasoning for details",
+          "ai_provider": "gemini",
+          "timing": {
+            "ocr_ms": 5333,
+            "ai_ms": 19466,
+            "total_ms": 24802
+          }
+        }
+      },
+      {
+        "question": "what is photosynthesis",
+        "studentAnswer": "e. D\nans\n1) Photosynthesis is the process plants use to turn\nsunlight into food\nThe Formula:\nPlants take in Water and Carbon Dioxide, use Sunlight\nas power, and produces Sugar (energy) and oxygen.\n6CO₂ + 6H₂O + light → C₆H₁₂O₆ + 6O₂\n\nKey facts\na) Where: It happens in chloroplast\nb) Energy: It uses chlorophyll to trap Sunlight\nc) Result: It gives the plant glucose to grow\nand releases oxygen for us to breathe...\nd) Provides - Sugar provides energy for repair\ne) Oxygen released from the same tiny holes CO₂\nf) Overall process is energy transfer from sun to plant\ng) Sugar molecules store sun's energy for later use.",
+        "evaluation": {
+          "marks": 5,
+          "feedback": "Excellent answer! You have thoroughly explained photosynthesis, covering all essential aspects including the definition, inputs, outputs, chemical equation, and the roles of the products. The additional key facts further enhance your comprehensive understanding.",
+          "reasoning": "The student has provided a complete and accurate answer to the question 'What is photosynthesis'.\n1. Definition/Purpose: Covered ('process plants use to turn sunlight into food' and 'Plants take in Water and Carbon Dioxide, use Sunlight as power, and produces Sugar').\n2. Inputs (CO2): Covered ('Carbon Dioxide').\n3. Inputs (H2O): Covered ('Water').\n4. Inputs (Light energy/Sunlight): Covered ('Sunlight as power').\n5. Outputs (Sugar/Glucose): Covered ('Sugar (energy)', 'glucose').\n6. Outputs (Oxygen): Covered ('oxygen').\n7. Chemical Equation: Covered ('6CO₂ + 6H₂O + light → C₆H₁₂O₆ + 6O₂').\n8. Energy Transfer (Sun to plant): Covered ('Overall process is energy transfer from sun to plant').\n9. Sugar's role (growth/repair, storage): Covered ('gives the plant glucose to grow', 'Sugar provides energy for repair', 'Sugar molecules store sun's energy for later use').\n10. Oxygen's role (for other organisms): Covered ('releases oxygen for us to breathe').\n11. Gas exchange mechanism (tiny holes): Covered ('Oxygen released from the same tiny holes CO₂').\nAll 11 key points derived from the lesson content and model answer are clearly articulated by the student. Additionally, the student has included relevant and correct extra information (chloroplasts, chlorophyll), which adds value to the answer.",
+          "confidence": "HIGH",
+          "confidence_reason": "The student's answer directly and comprehensively covers all critical key points explicitly mentioned or implicitly derived from the provided 'LESSON CONTENT / TEXTBOOK REFERENCE' and 'MODEL ANSWER'. The mapping of student's points to model answer's points is clear and complete.",
+          "improvements": "None – the answer is comprehensive and earns full marks.",
+          "key_points_covered": "Definition/Purpose of Photosynthesis, Inputs: Carbon Dioxide, Inputs: Water, Inputs: Light energy (Sunlight), Outputs: Sugar (Glucose), Outputs: Oxygen (O2), Chemical Equation, Overall Energy Transfer from Sun to Plant, Sugar's role (growth, repair, energy storage), Oxygen's role (for other organisms/breathing), Gas exchange mechanism (tiny holes)",
+          "key_points_missed": "None — all key points covered",
+          "maxMarks": 5,
+          "ai_provider": "gemini",
+          "timing": {
+            "ocr_ms": 5333,
+            "ai_ms": 17095,
+            "total_ms": 41897
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "1777204727045",
+    "savedAt": "2026-04-26T11:58:47.045Z",
+    "studentName": "Rupali Thorat",
+    "className": "10th SSC",
+    "chapter": "Ch 1 — Life Processes",
+    "questionPaper": "Practice test 2025-26",
+    "examType": "",
+    "subject": "Science",
+    "language": "English",
+    "totalMarks": 12,
+    "totalObtained": 10,
+    "ocrConfidence": "HIGH",
+    "questionCount": 2,
+    "results": [
+      {
+        "question": "what is photosynthesis",
+        "studentAnswer": "Q.D\n1) Photosynthesis is the process plants use to turn\nsunlight into food\nThe Formula:\nPlants take in Water and Carbon Dioxide, use Sunlight\nas power, and produces Sugar (energy) and Oxygen.\n6CO₂ + 6H₂O + light → C₆H₁₂O₆ + 6O₂\nKey facts\na) Where: It happens in chloroplast\nb) Energy: It uses chlorophyll to trap sunlight\nc) Result: It gives the plant glucose to grow\nand releases oxygen for us to breathe...\nd) Provides – Sugar provides energy for repair\ne) Oxygen released from the same tiny holes CO₂\nf) Overall process is energy transfer from sun to plant\ng) Sugar Molecules store sun's energy for later use.",
+        "evaluation": {
+          "marks": 4.5,
+          "feedback": "Your answer provides a good overview of photosynthesis, correctly listing inputs, outputs, the chemical formula, and the overall energy transfer. However, for full marks, you need to include more specific details regarding the mechanism of the reaction, the exact points of gas entry and water absorption, and the role of mitochondria in sugar utilization.",
+          "reasoning": "The model answer contains 13 distinct key points. \n\nPoints covered fully (9 points):\n1. Photosynthesis is the process plants use to make their food/sugar.\n2. Plants take in Carbon Dioxide (CO2).\n3. Plants take in Water (H2O).\n4. Uses light energy from the Sun.\n5. Produces sugar (glucose).\n6. Produces oxygen gas (O2).\n7. Provides the correct chemical formula (6CO₂ + 6H₂O + light → C₆H₁₂O₆ + 6O₂).\n8. Oxygen is released from the same tiny holes through which Carbon Dioxide entered.\n9. Released oxygen is used by other organisms (animals) for survival/breathing.\n10. The overall process is a transfer of energy from the Sun to a plant.\n11. Sugar molecules store the Sun's energy for later use.\n\nPoints partially covered (2 points, counted as 0.5 each):\n1. CO2 entry details: Student mentions 'tiny holes' for CO2 (implicitly for entry) but misses specific plant parts (leaves, flowers, branches, stems, roots).\n2. Sugar utilization: Student mentions sugar provides energy for growth and repair but misses the detail about it being 'broken down by mitochondria'.\n\nPoints completely missed (2 points):\n1. Mechanism of reaction: Light energy causes a chemical reaction that breaks down CO2 and H2O molecules and reorganizes them.\n2. Water absorption details: Student mentions 'Plants take in Water' but misses 'water is absorbed by roots'.\n\nCalculation: (9 full points + 2 * 0.5 partial points) / 13 total points * 6 marks = (9 + 1) / 13 * 6 = 10 / 13 * 6 = 0.7692 * 6 = 4.6152. Rounded to the nearest 0.5, this gives 4.5 marks.",
+          "confidence": "HIGH",
+          "confidence_reason": "The evaluation is based on a clear breakdown of the model answer into measurable key points and a systematic comparison with the student's response, strictly adhering to the provided marking scheme and rounding rules.",
+          "improvements": "To achieve full marks, the student should: \n1. Explain the mechanism of photosynthesis, specifically that light energy breaks down carbon dioxide and water molecules and then reorganizes them into sugar and oxygen. \n2. Mention that water is absorbed by the roots of the plant. \n3. Specify the plant parts (leaves, flowers, branches, stems, and roots) through which carbon dioxide enters via tiny holes. \n4. Include that sugar is broken down by mitochondria to release energy for growth and repair.",
+          "key_points_covered": "Photosynthesis definition (plants use sunlight to make food), Plants take in Carbon Dioxide (CO2), Plants take in Water (H2O), Uses Sunlight as power/light energy, Produces Sugar (glucose), Produces Oxygen gas (O2), Correct chemical formula (6CO₂ + 6H₂O + light → C₆H₁₂O₆ + 6O₂), Oxygen released from the same tiny holes CO₂, Released oxygen is used by other organisms (for us to breathe), Overall process is energy transfer from sun to plant, Sugar molecules store sun's energy for later use, Sugar provides energy for plant growth and repair, Carbon Dioxide enters through tiny holes.",
+          "key_points_missed": "Light energy causes a chemical reaction that breaks down carbon dioxide and water molecules and reorganizes them, Specific plant parts for CO2 entry (leaves, flowers, branches, stems, roots), Water is absorbed by roots, Sugar is broken down by the mitochondria.",
+          "maxMarks": 6,
+          "ai_provider": "gemini",
+          "timing": {
+            "ocr_ms": 5432,
+            "ai_ms": 37436,
+            "total_ms": 42870
+          }
+        }
+      },
+      {
+        "question": "what is photosynthesis",
+        "studentAnswer": "Q.D\n1) Photosynthesis is the process plants use to turn\nsunlight into food\nThe Formula:\nPlants take in Water and Carbon Dioxide, use Sunlight\nas power, and produces Sugar (energy) and Oxygen.\n6CO₂ + 6H₂O + light → C₆H₁₂O₆ + 6O₂\nKey facts\na) Where: It happens in chloroplast\nb) Energy: It uses chlorophyll to trap sunlight\nc) Result: It gives the plant glucose to grow\nand releases oxygen for us to breathe...\nd) Provides – Sugar provides energy for repair\ne) Oxygen released from the same tiny holes CO₂\nf) Overall process is energy transfer from sun to plant\ng) Sugar Molecules store sun's energy for later use.",
+        "evaluation": {
+          "marks": 5.5,
+          "feedback": "The student has provided a very good and comprehensive answer, clearly outlining the inputs, outputs, chemical equation, and the overall energy transfer in photosynthesis. However, for full marks, the answer should explicitly detail the mechanism by which light energy causes the chemical breakdown and reorganization of molecules.",
+          "reasoning": "The student successfully covered 8 out of 9 key points from the model answer. \n1. Definition/Goal (plants make food/sugar): Covered. ('turn sunlight into food', 'produces Sugar').\n2. Energy Source (sunlight): Covered. ('sunlight', 'Sunlight as power').\n3. Inputs (CO2, H2O): Covered. ('Water and Carbon Dioxide').\n4. Outputs (Sugar, O2): Covered. ('Sugar (energy) and Oxygen').\n5. Chemical Equation: Covered. (Provided correct equation).\n6. Mechanism Detail (Light energy causes chemical reaction that breaks down/reorganizes CO2/H2O): MISSING. The student mentioned sunlight as power but not the chemical breakdown and reorganization aspect.\n7. Overall Energy Transfer (sun to plant): Covered. ('Overall process is energy transfer from sun to plant').\n8. Fate of Sugar (energy for growth, repair, storage): Covered. ('Sugar (energy)', 'glucose to grow', 'energy for repair', 'store sun's energy for later use').\n9. Fate of Oxygen (released from tiny holes, for others to breathe): Covered. ('releases oxygen', 'Oxygen released from the same tiny holes CO₂').\n\nTotal points covered = 8.\nMarks = (8 / 9) * 6 = 5.333... which rounds to 5.5 marks.",
+          "confidence": "HIGH",
+          "confidence_reason": "The evaluation criteria are clear, and the mapping of student's answer to the model answer's key points is direct and unambiguous. The calculation of marks based on the strict rounding rule is also straightforward.",
+          "improvements": "To achieve full marks, the student should add a point explaining that light energy causes a chemical reaction that breaks down carbon dioxide and water molecules and reorganizes them to form sugar and oxygen. Also, while 'chloroplast' and 'chlorophyll' are correct scientific facts, they were not explicitly mentioned in the provided lesson content/model answer and thus not counted as covered points based on strict adherence to the provided text.",
+          "key_points_covered": "Definition/Goal of photosynthesis, Energy Source (Sunlight), Inputs (Carbon Dioxide, Water), Outputs (Sugar, Oxygen), Chemical Equation, Overall Energy Transfer (Sun to plant), Fate of Sugar (energy, growth, repair, storage), Fate of Oxygen (released from tiny holes for other organisms)",
+          "key_points_missed": "Mechanism: Light energy causes a chemical reaction that breaks down carbon dioxide and water and reorganizes them",
+          "maxMarks": 6,
+          "ai_provider": "gemini",
+          "timing": {
+            "ocr_ms": 5432,
+            "ai_ms": 20412,
+            "total_ms": 63282
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "1777194612730",
+    "savedAt": "2026-04-26T09:10:12.730Z",
+    "studentName": "Aditya Thorat",
+    "className": "10th SSC",
+    "chapter": "Ch 1 — Life Processes",
+    "questionPaper": "unit test 1:2025-26",
+    "examType": "Unit Test 1",
+    "subject": "Science",
+    "language": "English",
+    "totalMarks": 10,
+    "totalObtained": 7.5,
+    "ocrConfidence": "HIGH",
+    "questionCount": 2,
+    "results": [
+      {
+        "question": "what is photo synthesis",
+        "studentAnswer": "D\nns\n1) Photosynthesis is the process plants use to turn\nsunlight into food\n\nThe formula:\nPlants take in Water and Carbon Dioxide, use Sunlight\nas power, and produces Sugar (energy) and oxygen.\n\n6CO2 + 6H2O + light -> C6H12O6 + 6O2\n\nKey facts\n\na) Where: It happens in chloroplast\nb) Energy: It uses chlorophyll to trap sunlight\nc) Result: It gives the plant glucose to grow\nand releases oxygen for us to breathe...\nd) Provides - Sugar provides energy for repair\ne) Oxygen released from the same tiny holes CO2\nf) Overall process is energy transfer from sun to plant\ng) Sugar molecules store sun's energy for later use.",
+        "evaluation": {
+          "marks": 3,
+          "feedback": "The student has provided a good summary of photosynthesis, correctly identifying inputs, outputs, the formula, and the overall energy transfer. However, several important mechanistic and detailed points from the lesson content were omitted, impacting the overall score.",
+          "reasoning": "The model answer contains 14 distinct key points. The student's answer covers 9 of these points, including the general definition, inputs (CO2, water), energy source (sunlight), outputs (sugar, oxygen), the chemical formula, oxygen release mechanism, oxygen's use by other organisms, the process as energy transfer, and sugar's energy storage. However, the student missed crucial details such as the specific plant parts where CO2 enters (leaves, flowers, branches, stems, roots), the role of roots in water absorption, the explicit mention of light causing a chemical reaction that breaks down CO2 and H2O molecules, and the role of mitochondria in breaking down sugar for growth and repair. Based on 9 out of 14 points: (9/14) * 5 = 3.214, which rounds to 3.0 marks.",
+          "confidence": "HIGH",
+          "confidence_reason": "All key points from the model answer were systematically identified and cross-referenced with the student's response. The marking scheme and rounding rules have been strictly applied.",
+          "improvements": "For full marks, the student needs to add details regarding: 1) The specific plant parts (leaves, flowers, branches, stems, roots) through which carbon dioxide enters. 2) The role of roots in absorbing water. 3) Explicitly stating that light energy causes a chemical reaction. 4) Explaining that this chemical reaction breaks down carbon dioxide and water molecules. 5) Mentioning that sugar is broken down by the mitochondria to provide energy for growth and repair.",
+          "key_points_covered": "Plants take in and use carbon dioxide gas for photosynthesis, Plants require water, Sun provides the energy, Chemical reaction reorganizes CO2 and H2O to make sugar (glucose) and oxygen gas, Oxygen produced is released from the same tiny holes through which carbon dioxide entered, Other organisms (animals) use oxygen for survival, Chemical formula: 6CO2 + 6H2O + Light energy → C6H12O6 (sugar) + 6O2, The whole process of photosynthesis is a transfer of energy from the Sun to a plant, Sugar molecules store energy from the Sun, which the plant can either use or store for later",
+          "key_points_missed": "Carbon dioxide enters through tiny holes in a plant’s leaves, flowers, branches, stems, and roots, Roots are responsible for absorbing water (for most plants), Energy from light causes a chemical reaction, The chemical reaction breaks down the molecules of carbon dioxide and water, Sugar (glucose) is then broken down by the mitochondria into energy for growth and repair",
+          "maxMarks": 5,
+          "ai_provider": "gemini",
+          "timing": {
+            "ocr_ms": 6745,
+            "ai_ms": 39087,
+            "total_ms": 45835
+          }
+        }
+      },
+      {
+        "question": "what is photosynthesis",
+        "studentAnswer": "D\nns\n1) Photosynthesis is the process plants use to turn\nsunlight into food\n\nThe formula:\nPlants take in Water and Carbon Dioxide, use Sunlight\nas power, and produces Sugar (energy) and oxygen.\n\n6CO2 + 6H2O + light -> C6H12O6 + 6O2\n\nKey facts\n\na) Where: It happens in chloroplast\nb) Energy: It uses chlorophyll to trap sunlight\nc) Result: It gives the plant glucose to grow\nand releases oxygen for us to breathe...\nd) Provides - Sugar provides energy for repair\ne) Oxygen released from the same tiny holes CO2\nf) Overall process is energy transfer from sun to plant\ng) Sugar molecules store sun's energy for later use.",
+        "evaluation": {
+          "marks": 4.5,
+          "feedback": "The student has provided a very good answer, covering most of the essential elements of photosynthesis, including the correct definition, reactants, products, and the chemical equation. The significance of the products and the overall energy transfer are also well-explained.",
+          "reasoning": "The model answer consists of 14 key points. The student's answer covered 12 of these key points effectively.\n\nKey points covered:\n1. Photosynthesis is the process plants use to take in carbon dioxide and water to make their food (Definition).\n2. Requires carbon dioxide (CO2).\n3. Requires water (H2O).\n4. Requires energy from the Sun/Light.\n5. Produces sugar (glucose).\n6. Produces oxygen gas (O2).\n7. Correct chemical formula: 6CO2 + 6H2O + light -> C6H12O6 + 6O2.\n8. O2 is released from the same tiny holes CO2 [entered through].\n9. Sugar provides energy for growth and repair.\n10. Oxygen is used by other organisms (animals) for survival ('for us to breathe').\n11. Overall process is a transfer of energy from the Sun to a plant.\n12. Sugar molecules store Sun's energy for later use.\n\nKey points missed:\n1. The explicit mechanism: 'Light energy causes a chemical reaction that breaks down the molecules of carbon dioxide and water and reorganizes them.' The student lists inputs and outputs but not the chemical breakdown and reorganization aspect.\n2. Explicit mention of CO2 entry: 'Carbon dioxide enters through tiny holes in a plant’s leaves, flowers, branches, stems, and roots.' While the student implies CO2 enters through tiny holes, the specific location details are missing.\n\nCalculation: (12 covered points / 14 total points) * 5 marks = 4.2857, which rounds up to 4.5 marks according to the rounding rule.",
+          "confidence": "HIGH",
+          "confidence_reason": "The key points from the model answer were clearly identified and cross-referenced with the student's response. The strict evaluation rules for deducting marks for missing points were applied accurately, leading to a precise calculation and rounding.",
+          "improvements": "To achieve full marks, the student should explicitly state that light energy causes a chemical reaction that breaks down carbon dioxide and water molecules and then reorganizes them to form sugar and oxygen. Additionally, specify that carbon dioxide enters through tiny holes located in parts like leaves, flowers, branches, stems, and roots.",
+          "key_points_covered": "Photosynthesis is the process plants use to take in carbon dioxide and water to make their food,Requires carbon dioxide (CO2),Requires water (H2O),Requires energy from the Sun/Light,Produces sugar (glucose),Produces oxygen gas (O2),Formula: 6CO2 + 6H2O + light -> C6H12O6 + 6O2,O2 is released from the same tiny holes,Sugar provides energy for growth and repair,Oxygen is used by other organisms (animals) for survival,Overall process is a transfer of energy from the Sun to a plant,Sugar molecules store Sun's energy for later use",
+          "key_points_missed": "Chemical reaction breaks down CO2 and H2O molecules and reorganizes them,CO2 enters through tiny holes (leaves, flowers, branches, stems, and roots)",
+          "maxMarks": 5,
+          "ai_provider": "gemini",
+          "timing": {
+            "ocr_ms": 6745,
+            "ai_ms": 21699,
+            "total_ms": 67534
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "1777192553276",
+    "savedAt": "2026-04-26T08:35:53.276Z",
+    "studentName": "Riya Thorat",
+    "className": "10th SSC",
+    "chapter": "Ch 2 — Force & Laws",
+    "questionPaper": "Unit test 1:2025-26",
+    "examType": "Unit Test 1",
+    "subject": "Physics",
+    "language": "English",
+    "totalMarks": 10,
+    "totalObtained": 8.5,
+    "ocrConfidence": "HIGH",
+    "questionCount": 2,
+    "results": [
+      {
+        "question": "what is photosynthesis",
+        "studentAnswer": "D.D\nns\n1) Photosynthesis is the process plants use to turn\nsunlight into food\n\nThe Formula:\nPlants take in Water and Carbon Dioxide, use Sunlight\nas power, and produces Sugar (energy) and oxygen.\n\n6CO₂ + 6H₂O + light -> C6H₁₂O₆ + 6O₂\n\nKey facts\na) Where: It happens in chloroplast\nb) Energy: It uses chlorophyll to trap sunlight\nc) Result: It gives the plant glucose to grow\nand releases oxygen for us to breathe...\nd) Provides: Sugar provides energy for repair\ne) Oxygen released from the same tiny holes CO₂\nf) Overall process is energy transfer from sun to plant\ng) Sugar molecules store sun's energy for later use.",
+        "evaluation": {
+          "marks": 4,
+          "feedback": "Your answer provides a good overall understanding of photosynthesis, including the essential inputs, outputs, formula, and energy transfer. However, for full marks, you need to be more explicit about the nature of the process as a chemical reaction involving the breakdown of molecules, and specify the role of mitochondria in sugar utilization.",
+          "reasoning": "The model answer contains 12 distinct key points. The student covered 9 out of these 12 points correctly.\n\nPoints covered (9):\n1. Plants take in carbon dioxide gas.\n2. Plants take in water.\n3. Sunlight/light energy is required/used.\n4. Produces sugar (glucose).\n5. Produces oxygen gas.\n6. Correct chemical formula: 6CO2 + 6H2O + Light energy → C6H12O6 (sugar) + 6O2.\n7. Overall process is a transfer of energy from the Sun to a plant.\n8. Sugar molecules store the Sun's energy for later use.\n9. Oxygen is released from the same tiny holes through which carbon dioxide entered.\n\nPoints missed (3):\n1. Explicitly stating that photosynthesis is a 'chemical reaction'.\n2. Mentioning that light energy causes the chemical reaction that 'breaks down' carbon dioxide and water molecules.\n3. Detailing that sugar is then 'broken down by the mitochondria' for energy for growth and repair (though the purpose of sugar for growth/repair was partly mentioned, the specific mechanism involving mitochondria was missed).\n\nMarks = (points covered / total points) * 5 = (9 / 12) * 5 = 0.75 * 5 = 3.75. Rounded to the nearest 0.5, this gives 4.0 marks.",
+          "confidence": "HIGH",
+          "confidence_reason": "The evaluation rigorously cross-references each component of the student's answer with the provided model answer and strict marking guidelines. Each key point from the model answer was distinctly identified and checked for explicit coverage by the student.",
+          "improvements": "To achieve full marks, the student should add the following details:\n1. Explicitly state that photosynthesis is a 'chemical reaction'.\n2. Clarify that light energy causes this reaction to 'break down' carbon dioxide and water molecules.\n3. Include the detail that the produced sugar is subsequently 'broken down by the mitochondria' to release energy for growth and repair.",
+          "key_points_covered": "Plants take in carbon dioxide gas, Plants take in water, Sunlight/light energy is required/used, Produces sugar (glucose), Produces oxygen gas, Formula: 6CO2 + 6H2O + Light energy → C6H12O6 (sugar) + 6O2, Overall process is a transfer of energy from the Sun to a plant, Sugar molecules store the Sun's energy for later use, Oxygen is released from the same tiny holes through which carbon dioxide entered",
+          "key_points_missed": "It is a chemical reaction, Light energy causes chemical reaction that breaks down the molecules of carbon dioxide and water, Sugar is then broken down by the mitochondria into energy that can be used for growth and repair",
+          "maxMarks": 5,
+          "ai_provider": "gemini",
+          "timing": {
+            "ocr_ms": 6667,
+            "ai_ms": 32504,
+            "total_ms": 39174
+          }
+        }
+      },
+      {
+        "question": "what is photosynthesis",
+        "studentAnswer": "D.D\nns\n1) Photosynthesis is the process plants use to turn\nsunlight into food\n\nThe Formula:\nPlants take in Water and Carbon Dioxide, use Sunlight\nas power, and produces Sugar (energy) and oxygen.\n\n6CO₂ + 6H₂O + light -> C6H₁₂O₆ + 6O₂\n\nKey facts\na) Where: It happens in chloroplast\nb) Energy: It uses chlorophyll to trap sunlight\nc) Result: It gives the plant glucose to grow\nand releases oxygen for us to breathe...\nd) Provides: Sugar provides energy for repair\ne) Oxygen released from the same tiny holes CO₂\nf) Overall process is energy transfer from sun to plant\ng) Sugar molecules store sun's energy for later use.",
+        "evaluation": {
+          "marks": 4.5,
+          "feedback": "Your answer is very comprehensive and well-structured, covering most essential aspects of photosynthesis, including the balanced chemical equation and practical uses. However, to achieve full marks, ensure all mechanistic details are explicitly stated as per the textbook.",
+          "reasoning": "The model answer contains 13 distinct key points. The student has accurately covered 12 out of these 13 points. \n1. Definition/Purpose: Covered (process plants use to turn sunlight into food).\n2. Raw Material (CO2): Covered (take in Carbon Dioxide).\n3. Raw Material (Water): Covered (take in Water).\n4. Energy Source (Light): Covered (use Sunlight as power).\n5. Mechanism (Chemical Reaction: breakdown and reorganization of molecules): Missed. The student implies conversion but does not explicitly state the 'breakdown of molecules of carbon dioxide and water and reorganizes them' as part of the chemical reaction.\n6. Product (Sugar): Covered (produces Sugar (energy), gives the plant glucose).\n7. Product (Oxygen): Covered (produces oxygen).\n8. Chemical Equation: Covered (6CO₂ + 6H₂O + light -> C6H₁₂O₆ + 6O₂).\n9. Use of Sugar: Covered (glucose to grow and energy for repair).\n10. Gas Exchange Location: Covered (Oxygen released from the same tiny holes CO₂).\n11. Use of Oxygen by others: Covered (releases oxygen for us to breathe).\n12. Overall Energy Transfer: Covered (Overall process is energy transfer from sun to plant).\n13. Energy Storage: Covered (Sugar molecules store sun's energy for later use).\n\nMarks = (12 covered points / 13 total points) * 5 = 4.615. Rounded to the nearest 0.5, this results in 4.5 marks.",
+          "confidence": "HIGH",
+          "confidence_reason": "The evaluation strictly adheres to the provided model answer, lesson content, and strict marking rules. Each point has been cross-referenced and quantified precisely, leading to a confident mark calculation and identification of covered/missed points.",
+          "improvements": "To achieve full marks, explicitly state that during photosynthesis, light energy causes a chemical reaction that breaks down carbon dioxide and water molecules and reorganizes them to form sugar and oxygen. While mentioning chloroplasts and chlorophyll is correct, these points were not part of the provided lesson content for evaluation, so focus on the details present in the given text.",
+          "key_points_covered": "Photosynthesis is the process plants use to make food (sugar), Plants take in carbon dioxide, Plants take in water, Requires light energy from the Sun, Produces sugar (glucose), Produces oxygen, The balanced chemical equation is 6CO₂ + 6H₂O + light → C6H₁₂O₆ + 6O₂, Sugar (glucose) is used for plant growth and repair, Oxygen is released from tiny holes (where CO₂ entered), Oxygen is used by other organisms (animals) for survival/breathing, The overall process is a transfer of energy from the Sun to the plant, Sugar molecules store the Sun's energy for later use",
+          "key_points_missed": "Explicit description of the chemical reaction: light energy causes breakdown of CO2 and H2O molecules and reorganizes them",
+          "maxMarks": 5,
+          "ai_provider": "gemini",
+          "timing": {
+            "ocr_ms": 6667,
+            "ai_ms": 44591,
+            "total_ms": 83765
+          }
+        }
+      }
+    ]
+  }
+]

@@ -760,3 +760,314 @@ body {
   .confidence-warning-banner { border: 1px solid #FED7AA; }
   .confidence-legend { border: 1px solid var(--border); }
 }
+
+/* ── History Button ── */
+.history-btn {
+  background: rgba(255,255,255,0.2);
+  color: white;
+  border: 2px solid rgba(255,255,255,0.4);
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.history-btn:hover { background: rgba(255,255,255,0.3); }
+
+/* ── Modal ── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal-box {
+  background: white;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 650px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 2px solid #e2e8f0;
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 1;
+}
+
+.modal-header h2 { font-size: 1.2rem; color: #2d3748; }
+
+.modal-close {
+  background: #f1f5f9;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── History List ── */
+.history-list { padding: 16px; }
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.history-item:hover { background: #f0f4ff; border-color: #667eea; }
+
+.history-item-left { display: flex; flex-direction: column; gap: 3px; }
+.history-student { font-size: 14px; font-weight: 600; color: #2d3748; }
+.history-meta { font-size: 12px; color: #718096; }
+
+.history-item-right { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+.history-score { font-size: 18px; font-weight: 700; color: #667eea; }
+.history-questions { font-size: 11px; color: #a0aec0; }
+
+.history-loading { text-align: center; padding: 30px; color: #718096; }
+.history-empty { text-align: center; padding: 30px; color: #a0aec0; font-size: 14px; }
+
+/* ── History Detail ── */
+.history-detail { padding: 20px; }
+.btn-back-history {
+  background: #f1f5f9;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  margin-bottom: 16px;
+  color: #667eea;
+  font-weight: 600;
+}
+.history-detail-info { background: #f8fafc; border-radius: 10px; padding: 14px; margin-bottom: 10px; }
+.history-detail-info p { font-size: 13px; color: #4a5568; margin-bottom: 5px; }
+
+/* ── Template Section ── */
+.template-section {
+  background: #f0f4ff;
+  border: 1px solid #667eea30;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.template-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+.btn-save-template {
+  padding: 12px 16px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  height: 46px;
+}
+.btn-save-template:hover { opacity: 0.9; }
+
+.save-template-box {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.save-template-box input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.btn-confirm-save {
+  padding: 10px 20px;
+  background: #22c55e;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.template-msg {
+  font-size: 13px;
+  color: #667eea;
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+/* ── Char Count ── */
+.char-count {
+  font-size: 11px;
+  color: #a0aec0;
+  display: block;
+  margin-top: 4px;
+  text-align: right;
+}
+
+/* ── Optional Tag ── */
+.optional-tag {
+  font-size: 11px;
+  color: #22c55e;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+  margin-left: 6px;
+}
+/* ── Fix 4: Lesson content counter ── */
+.lesson-counter-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4px;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.char-count {
+  font-size: 11px;
+  color: #a0aec0;
+  text-align: right;
+}
+
+.char-over { color: #D97706; font-weight: 600; }
+
+.lesson-limit-msg {
+  font-size: 11.5px;
+  color: #D97706;
+  font-weight: 500;
+  background: #FFFBEB;
+  padding: 3px 10px;
+  border-radius: 6px;
+  border: 1px solid #FDE68A;
+}
+
+/* ── Fix 5: Template helper text ── */
+.template-helper-text {
+  font-size: 12.5px;
+  color: #4a5568;
+  background: #EEF1F8;
+  border-left: 3px solid #667eea;
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+
+/* ── Fix 1: Per-question upload blocks ── */
+.question-upload-block {
+  margin-bottom: 20px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  background: var(--cream);
+}
+
+.question-upload-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.qnum-badge {
+  background: var(--navy);
+  color: white;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.qtext-preview {
+  font-size: 13px;
+  color: var(--ink);
+  font-weight: 500;
+  flex: 1;
+}
+
+.qmarks-small {
+  font-size: 12px;
+  color: var(--muted);
+  background: var(--paper);
+  padding: 2px 8px;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.upload-box-sm {
+  min-height: 120px !important;
+}
+
+/* ── Fix 6: OCR disclaimer ── */
+.ocr-disclaimer {
+  font-size: 11.5px;
+  color: #92400E;
+  background: #FFFBEB;
+  border: 1px solid #FDE68A;
+  padding: 6px 10px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.ocr-confidence-label {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+.ocr-confidence-label strong {
+  color: var(--navy);
+}
+
+/* ── Fix 3: Total marks banner ── */
+.total-marks-banner {
+  display: flex;
+  justify-content: space-between;
+  background: var(--navy-pale);
+  border: 1px solid rgba(15,31,61,0.12);
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: var(--navy);
+  font-size: 13px;
+  flex-wrap: wrap;
+  gap: 8px;
+}

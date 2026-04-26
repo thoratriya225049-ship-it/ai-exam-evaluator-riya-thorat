@@ -4,16 +4,16 @@ import cors from 'cors'
 import { randomUUID } from 'crypto'
 import ocrRoute from './routes/ocr.route.js'
 import evaluateRoute from './routes/evaluate.route.js'
+import templatesRoute from './routes/templates.route.js'
+import historyRoute from './routes/history.route.js'
 import { metrics } from './metrics.js'
 import { logger } from './logger.js'
 
 dotenv.config()
 const app = express()
 
-// ── Request ID middleware ────────────────────────────────────────────────────
-// Attaches a unique requestId to every incoming request for log tracing.
 app.use((req, res, next) => {
-  req.requestId = randomUUID().slice(0, 8)   // short 8-char ID e.g. "a1b2c3d4"
+  req.requestId = randomUUID().slice(0, 8)
   res.setHeader('X-Request-Id', req.requestId)
   metrics.inc('totalRequests')
   logger.info(req.requestId, 'request_received', {
@@ -23,7 +23,6 @@ app.use((req, res, next) => {
   next()
 })
 
-// ── CORS ─────────────────────────────────────────────────────────────────────
 app.use(cors({
   origin: [
     'http://localhost:3000',
@@ -35,23 +34,19 @@ app.use(cors({
 
 app.use(express.json())
 
-// ── Routes ───────────────────────────────────────────────────────────────────
 app.use('/api', ocrRoute)
 app.use('/api', evaluateRoute)
+app.use('/api', templatesRoute)
+app.use('/api', historyRoute)
 
-// ── Metrics endpoint ─────────────────────────────────────────────────────────
-// Returns live in-memory counters and average durations. No secrets exposed.
 app.get('/api/metrics', (req, res) => {
   res.json({ success: true, metrics: metrics.snapshot() })
 })
 
-// ── Health check ─────────────────────────────────────────────────────────────
 app.get('/', (req, res) => {
   res.json({ message: 'AI Exam Evaluator Backend Running' })
 })
 
-// ── Global error handler ─────────────────────────────────────────────────────
-// Catches multer errors and any other unhandled errors from routes.
 app.use((err, req, res, next) => {
   const rid = req.requestId || 'unknown'
   if (err.code === 'LIMIT_FILE_SIZE') {
@@ -72,4 +67,4 @@ app.listen(PORT, () => {
   console.log(` Server running on http://localhost:${PORT}`)
 })
 
-export default app   // exported for tests
+export default app

@@ -1,30 +1,37 @@
 import axios from 'axios'
 
 const Step2Upload = ({
-  image, setImage,
-  imagePreview, setImagePreview,
+  images, setImages,
+  imagePreviews, setImagePreviews,
   formData, setResult,
   loading, setLoading,
   error, setError,
   onBack, onSuccess
 }) => {
 
-  const handleImageChange = (e) => {
+  const handleImageChange = (index, e) => {
     const file = e.target.files[0]
-    if (file) {
-      setImage(file)
-      setImagePreview(URL.createObjectURL(file))
-      setError('')
-    }
+    if (!file) return
+    const newImages = [...images]
+    const newPreviews = [...imagePreviews]
+    newImages[index] = file
+    newPreviews[index] = URL.createObjectURL(file)
+    setImages(newImages)
+    setImagePreviews(newPreviews)
+    setError('')
   }
 
   const handleEvaluate = async () => {
-    if (!image) { setError('Please upload an answer sheet image'); return }
+    if (!images[0]) {
+      setError('Please upload at least one answer sheet image')
+      return
+    }
+
     setLoading(true)
     setError('')
+
     try {
       const data = new FormData()
-      data.append('answerSheet', image)
       data.append('subject', formData.subject)
       data.append('language', formData.language)
       data.append('studentName', formData.studentName)
@@ -33,6 +40,12 @@ const Step2Upload = ({
       data.append('questionPaper', formData.questionPaper)
       data.append('lessonContent', formData.lessonContent || '')
       data.append('questions', JSON.stringify(formData.questions))
+
+      // Always send as single 'answerSheet' field.
+      // Backend OCR reads the full sheet once and evaluates all questions from it.
+      // If user uploaded per-question images, send the first non-null one.
+      const primaryImage = images.find(img => img !== null) || images[0]
+      data.append('answerSheet', primaryImage)
 
       const response = await axios.post(
         'http://localhost:3000/api/full-evaluate',
@@ -54,7 +67,11 @@ const Step2Upload = ({
     <div className="step-content">
       <div className="form-header">
         <h2>Upload Answer Sheet</h2>
-        <p className="subtitle">Upload a clear photo of the student's handwritten answer sheet</p>
+        <p className="subtitle">
+          {formData.questions.length > 1
+            ? `Upload the answer sheet for each question (${formData.questions.length} questions)`
+            : "Upload a clear photo of the student's handwritten answer sheet"}
+        </p>
       </div>
 
       <div className="student-summary-card">
@@ -72,37 +89,60 @@ const Step2Upload = ({
         </div>
       </div>
 
-      <div className="upload-box" onClick={() => document.getElementById('fileInput').click()}>
-        {imagePreview ? (
-          <div className="image-preview-container">
-            <img src={imagePreview} alt="Answer sheet" className="preview-img" />
-            <p className="change-text">Click to change image</p>
+      {formData.questions.map((q, index) => (
+        <div key={index} className="question-upload-block">
+          <div className="question-upload-label">
+            <span className="qnum-badge">Q{index + 1}</span>
+            <span className="qtext-preview">
+              {q.question.substring(0, 60)}{q.question.length > 60 ? '...' : ''}
+            </span>
+            <span className="qmarks-small">{q.maxMarks} marks</span>
           </div>
-        ) : (
-          <div className="upload-placeholder">
-            <div className="upload-icon-svg">
-              <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                <rect x="6" y="8" width="36" height="32" rx="4" stroke="#CBD5E1" strokeWidth="2"/>
-                <path d="M16 28 L22 20 L28 26 L32 22 L40 30" stroke="#94A3B8" strokeWidth="1.5" strokeLinecap="round"/>
-                <circle cx="17" cy="18" r="3" fill="#CBD5E1"/>
-                <path d="M24 36 L24 42 M20 39 L24 43 L28 39" stroke="#94A3B8" strokeWidth="1.5" strokeLinecap="round"/>
-              </svg>
-            </div>
-            <p className="upload-text">Click to upload answer sheet</p>
-            <p className="upload-hint">JPG or PNG — clear photo works best</p>
-          </div>
-        )}
-      </div>
 
-      <input id="fileInput" type="file" accept="image/jpeg,image/png,image/jpg"
-        onChange={handleImageChange} style={{ display: 'none' }} />
+          <div
+            className="upload-box upload-box-sm"
+            onClick={() => document.getElementById(`fileInput_${index}`).click()}
+          >
+            {imagePreviews[index] ? (
+              <div className="image-preview-container">
+                <img
+                  src={imagePreviews[index]}
+                  alt={`Answer sheet Q${index + 1}`}
+                  className="preview-img"
+                />
+                <p className="change-text">Click to change image</p>
+              </div>
+            ) : (
+              <div className="upload-placeholder">
+                <div className="upload-icon-svg">
+                  <svg width="36" height="36" viewBox="0 0 48 48" fill="none">
+                    <rect x="6" y="8" width="36" height="32" rx="4" stroke="#CBD5E1" strokeWidth="2"/>
+                    <path d="M16 28 L22 20 L28 26 L32 22 L40 30" stroke="#94A3B8" strokeWidth="1.5" strokeLinecap="round"/>
+                    <circle cx="17" cy="18" r="3" fill="#CBD5E1"/>
+                  </svg>
+                </div>
+                <p className="upload-text">Upload answer for Q{index + 1}</p>
+                <p className="upload-hint">JPG or PNG</p>
+              </div>
+            )}
+          </div>
+
+          <input
+            id={`fileInput_${index}`}
+            type="file"
+            accept="image/jpeg,image/png,image/jpg"
+            onChange={e => handleImageChange(index, e)}
+            style={{ display: 'none' }}
+          />
+        </div>
+      ))}
 
       <div className="tips-box">
         <p className="tips-title">Tips for best results</p>
         <ul>
           <li>Good lighting — no shadows on the sheet</li>
           <li>Flat surface — no wrinkles or folds</li>
-          <li>All answers visible in a single photo</li>
+          <li>All answers clearly visible in the photo</li>
         </ul>
       </div>
 
