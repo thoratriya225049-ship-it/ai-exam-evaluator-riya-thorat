@@ -1071,3 +1071,88 @@ body {
   flex-wrap: wrap;
   gap: 8px;
 }
+
+/* ── Template Load Row ── */
+.template-load-row {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+  margin-bottom: 12px;
+}
+
+/* ── Template Save Row ── */
+.template-save-row {
+  margin-bottom: 8px;
+}
+
+/* ── Delete Template Button ── */
+.btn-delete-template {
+  padding: 12px 14px;
+  background: #fff5f5;
+  color: #e53e3e;
+  border: 1px solid #e53e3e;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  height: 46px;
+}
+.btn-delete-template:hover { background: #ffe4e4; }
+
+/* ── Save Template Input Row ── */
+.save-template-input-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.save-template-input-row input {
+  flex: 1;
+  padding: 12px 14px;
+  border: 2px solid #667eea;
+  border-radius: 10px;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+}
+
+.save-template-input-row input:focus {
+  box-shadow: 0 0 0 3px rgba(102,126,234,0.15);
+}
+
+.save-template-hint {
+  font-size: 12px;
+  color: #718096;
+  margin: 0;
+}
+
+/* ── Template Message ── */
+.template-msg {
+  font-size: 13px;
+  color: #22c55e;
+  font-weight: 500;
+  margin-top: 8px;
+  padding: 8px 12px;
+  background: #f0fff4;
+  border-radius: 8px;
+  border: 1px solid #22c55e30;
+}
+
+.template-msg-error {
+  color: #e53e3e;
+  background: #fff5f5;
+  border-color: #e53e3e30;
+}
+
+/* ── Lesson Counter ── */
+.lesson-counter-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.char-count { font-size: 12px; color: #a0aec0; }
+.char-over { color: #e53e3e; font-weight: 600; }
+.lesson-limit-msg { font-size: 12px; color: #e53e3e; font-weight: 500; }

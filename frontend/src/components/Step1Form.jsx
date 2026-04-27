@@ -23,14 +23,19 @@ const Step1Form = ({ formData, setFormData, onNext, error, setError }) => {
   const [templateName, setTemplateName] = useState('')
   const [showSaveTemplate, setShowSaveTemplate] = useState(false)
   const [templateMsg, setTemplateMsg] = useState('')
+  const [selectedTemplateId, setSelectedTemplateId] = useState('')
+  const [savingTemplate, setSavingTemplate] = useState(false)
 
-  useEffect(() => {
+  const fetchTemplates = () => {
     axios.get('http://localhost:3000/api/templates')
       .then(res => setTemplates(res.data.templates || []))
       .catch(() => setTemplates([]))
-  }, [])
+  }
+
+  useEffect(() => { fetchTemplates() }, [])
 
   const loadTemplate = (templateId) => {
+    setSelectedTemplateId(templateId)
     if (!templateId) return
     const t = templates.find(t => t.id === templateId)
     if (!t) return
@@ -40,14 +45,41 @@ const Step1Form = ({ formData, setFormData, onNext, error, setError }) => {
       subject: t.subject || formData.subject,
       chapter: t.chapter || '',
       examType: t.examType || '',
-      questions: t.questions || formData.questions,
+      questions: t.questions?.length > 0 ? t.questions : formData.questions,
     })
-    setTemplateMsg(`✅ Template "${t.name}" loaded!`)
-    setTimeout(() => setTemplateMsg(''), 3000)
+    setTemplateMsg(`✅ Template "${t.name}" loaded successfully!`)
+    setTimeout(() => setTemplateMsg(''), 4000)
+  }
+
+  const deleteTemplate = async (templateId, templateName) => {
+    if (!window.confirm(`Delete template "${templateName}"?`)) return
+    try {
+      await axios.delete(`http://localhost:3000/api/templates/${templateId}`)
+      setSelectedTemplateId('')
+      fetchTemplates()
+      setTemplateMsg('🗑️ Template deleted')
+      setTimeout(() => setTemplateMsg(''), 3000)
+    } catch {
+      setTemplateMsg('❌ Failed to delete template')
+    }
   }
 
   const saveTemplate = async () => {
-    if (!templateName.trim()) { setTemplateMsg('❌ Please enter a template name'); return }
+    if (!templateName.trim()) {
+      setTemplateMsg('❌ Please enter a template name')
+      return
+    }
+
+    // Validate questions before saving
+    const hasValidQuestions = formData.questions.some(
+      q => q.question?.trim() && q.modelAnswer?.trim()
+    )
+    if (!hasValidQuestions) {
+      setTemplateMsg('❌ Please fill at least one question and model answer before saving')
+      return
+    }
+
+    setSavingTemplate(true)
     try {
       await axios.post('http://localhost:3000/api/templates', {
         name: templateName.trim(),
@@ -55,16 +87,17 @@ const Step1Form = ({ formData, setFormData, onNext, error, setError }) => {
         subject: formData.subject,
         chapter: formData.chapter,
         examType: formData.examType,
-        questions: formData.questions,
+        questions: formData.questions.filter(q => q.question?.trim() && q.modelAnswer?.trim()),
       })
       setTemplateMsg(`✅ Template "${templateName}" saved!`)
       setTemplateName('')
       setShowSaveTemplate(false)
-      const res = await axios.get('http://localhost:3000/api/templates')
-      setTemplates(res.data.templates || [])
-      setTimeout(() => setTemplateMsg(''), 3000)
+      fetchTemplates()
+      setTimeout(() => setTemplateMsg(''), 4000)
     } catch {
-      setTemplateMsg('❌ Failed to save template')
+      setTemplateMsg('❌ Failed to save template. Try again.')
+    } finally {
+      setSavingTemplate(false)
     }
   }
 
@@ -84,7 +117,7 @@ const Step1Form = ({ formData, setFormData, onNext, error, setError }) => {
 
   const handleNext = () => {
     if (!formData.studentName.trim()) { setError('Please enter student name'); return }
-    if (!formData.chapter.trim()) { setError('Please select or enter a chapter'); return }
+    if (!formData.chapter.trim()) { setError('Please select a chapter'); return }
     if (!formData.questionPaper.trim()) { setError('Please enter question paper title'); return }
     for (let i = 0; i < formData.questions.length; i++) {
       if (!formData.questions[i].question.trim()) { setError(`Please enter question ${i + 1}`); return }
@@ -110,42 +143,90 @@ const Step1Form = ({ formData, setFormData, onNext, error, setError }) => {
         Maharashtra State Board of Secondary &amp; Higher Secondary Education
       </div>
 
-      {/* Fix 5: Template helper text */}
+      {/* Template Section */}
       <div className="template-section">
         <div className="template-helper-text">
           💡 <strong>Templates</strong> save your exam setup (questions + model answers + marks) so you don't need to retype for every student.
         </div>
-        <div className="template-row">
-          <div className="field" style={{ flex: 1 }}>
+
+        {/* Load Template */}
+        <div className="template-load-row">
+          <div className="field" style={{ flex: 1, marginBottom: 0 }}>
             <label>Load Saved Template</label>
             <div className="select-wrapper">
-              <select onChange={e => loadTemplate(e.target.value)} defaultValue="">
+              <select
+                value={selectedTemplateId}
+                onChange={e => loadTemplate(e.target.value)}
+              >
                 <option value="">— Select a template —</option>
                 {templates.map(t => (
-                  <option key={t.id} value={t.id}>{t.name} ({t.subject} — {t.grade})</option>
+                  <option key={t.id} value={t.id}>
+                    {t.name} ({t.subject} — {t.grade})
+                  </option>
                 ))}
               </select>
               <span className="select-arrow">▼</span>
             </div>
           </div>
-          <button className="btn-save-template" onClick={() => setShowSaveTemplate(!showSaveTemplate)}>
-            💾 Save Template
+
+          {/* Delete button shown when template selected */}
+          {selectedTemplateId && (
+            <button
+              className="btn-delete-template"
+              onClick={() => {
+                const t = templates.find(t => t.id === selectedTemplateId)
+                if (t) deleteTemplate(t.id, t.name)
+              }}
+            >
+              🗑️ Delete
+            </button>
+          )}
+        </div>
+
+        {/* Save Template Toggle */}
+        <div className="template-save-row">
+          <button
+            className="btn-save-template"
+            onClick={() => {
+              setShowSaveTemplate(!showSaveTemplate)
+              setTemplateMsg('')
+            }}
+          >
+            💾 {showSaveTemplate ? 'Cancel' : 'Save Current as Template'}
           </button>
         </div>
 
+        {/* Save Template Input — shown when toggled */}
         {showSaveTemplate && (
           <div className="save-template-box">
-            <input
-              type="text"
-              placeholder="Template name e.g. Science Unit Test 1"
-              value={templateName}
-              onChange={e => setTemplateName(e.target.value)}
-            />
-            <button className="btn-confirm-save" onClick={saveTemplate}>Save</button>
+            <div className="save-template-input-row">
+              <input
+                type="text"
+                placeholder="Enter template name e.g. Science Unit Test 1 — 2025"
+                value={templateName}
+                onChange={e => setTemplateName(e.target.value)}
+                onKeyDown={e => e.key === 'Enter' && saveTemplate()}
+                autoFocus
+              />
+              <button
+                className="btn-confirm-save"
+                onClick={saveTemplate}
+                disabled={savingTemplate}
+              >
+                {savingTemplate ? 'Saving...' : '✅ Save'}
+              </button>
+            </div>
+            <p className="save-template-hint">
+              This will save: subject, chapter, exam type, all questions &amp; model answers
+            </p>
           </div>
         )}
 
-        {templateMsg && <p className="template-msg">{templateMsg}</p>}
+        {templateMsg && (
+          <p className={`template-msg ${templateMsg.startsWith('❌') ? 'template-msg-error' : ''}`}>
+            {templateMsg}
+          </p>
+        )}
       </div>
 
       {/* Student Info */}
@@ -178,7 +259,10 @@ const Step1Form = ({ formData, setFormData, onNext, error, setError }) => {
         <div className="field">
           <label>Subject</label>
           <div className="select-wrapper">
-            <select value={formData.subject} onChange={e => setFormData({ ...formData, subject: e.target.value, chapter: '' })}>
+            <select
+              value={formData.subject}
+              onChange={e => setFormData({ ...formData, subject: e.target.value, chapter: '' })}
+            >
               <option value="Science">Science</option>
               <option value="Mathematics">Mathematics</option>
               <option value="English">English</option>
@@ -209,7 +293,10 @@ const Step1Form = ({ formData, setFormData, onNext, error, setError }) => {
         <div className="field">
           <label>Chapter</label>
           <div className="select-wrapper">
-            <select value={formData.chapter} onChange={e => setFormData({ ...formData, chapter: e.target.value })}>
+            <select
+              value={formData.chapter}
+              onChange={e => setFormData({ ...formData, chapter: e.target.value })}
+            >
               <option value="">— Select Chapter —</option>
               {chapters.map(c => <option key={c} value={c}>{c}</option>)}
             </select>
@@ -239,25 +326,25 @@ const Step1Form = ({ formData, setFormData, onNext, error, setError }) => {
         />
       </div>
 
-      {/* Fix 4: Lesson content with proper limit feedback */}
+      {/* Lesson Content */}
       <div className="field">
         <label>
           Lesson Content / Textbook Passage
           <span className="optional-tag"> Optional — improves AI accuracy</span>
         </label>
         <textarea
-          placeholder="Paste relevant textbook content or lesson notes here..."
+          placeholder="Paste relevant textbook content or lesson notes here (max 500 characters used)..."
           value={formData.lessonContent}
           onChange={e => setFormData({ ...formData, lessonContent: e.target.value })}
           rows={4}
         />
         <div className="lesson-counter-row">
           <span className={`char-count ${lessonOverLimit ? 'char-over' : ''}`}>
-            {lessonLen} chars typed
+            {lessonLen} / 500 characters
           </span>
           {lessonOverLimit && (
             <span className="lesson-limit-msg">
-              ⚠️ Only the first 500 characters will be used for evaluation
+              ⚠️ Only first 500 chars will be used
             </span>
           )}
         </div>

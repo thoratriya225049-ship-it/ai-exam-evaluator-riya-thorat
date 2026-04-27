@@ -1,5 +1,373 @@
 [
   {
+    "id": "1777326811239",
+    "savedAt": "2026-04-27T21:53:31.239Z",
+    "studentName": "Aditya Sharma",
+    "className": "10th SSC",
+    "chapter": "Ch 1 — Life Processes",
+    "questionPaper": "final exam",
+    "examType": "",
+    "subject": "Science",
+    "language": "English",
+    "totalMarks": 10,
+    "totalObtained": 5.5,
+    "ocrConfidence": "HIGH",
+    "questionCount": 2,
+    "results": [
+      {
+        "question": "what is photosynthesis",
+        "studentAnswer": "D.D\nins\n1) Photosynthesis is the process plants use to turn\nsunlight into food\nThe Formula:\nPlants take in water and Carbon Dioxide, use Sunlight\nas power, and produces Sugar (energy) and oxygen.\n6CO2 + 6H2O + light → (6H120c + 602\nKey Facts\na) Where: It happens in chloroplast\nb) Energy: It uses chlorophyll to trap sunlight\nc) Result: It gives the plant glucose to grow\nand releases oxygen for us to breathe...\nd) Provides - Sugar provides energy for repair\ne) Oxygen released from the same tiny holes CO2\nf) Overall process is energy transfer from sun to plant\ng) Sugar Molecules store sun's energy for later use.",
+        "ocrConfidence": "HIGH",
+        "evaluation": {
+          "marks": 5.5,
+          "feedback": "Your answer is very comprehensive and demonstrates a good understanding of photosynthesis. You have correctly identified the inputs, outputs, energy source, and the overall purpose of the process. Adding details about where it occurs within the plant would have earned full marks.",
+          "reasoning": "The student correctly defined photosynthesis, mentioned sunlight as the energy source, identified water and carbon dioxide as inputs, and sugar (glucose) and oxygen as outputs. They also provided the correct chemical equation and mentioned that sugar provides energy for growth and repair, and that oxygen is released. The concept of energy transfer from the sun to the plant and storage of energy in sugar molecules was also covered. The only missing key point is the location of photosynthesis within the plant (chloroplasts).  Key points covered: 7/8. Marks calculation: (7/8) * 6 = 5.25. Rounded to nearest 0.5 is 5.5.",
+          "confidence": "HIGH",
+          "confidence_reason": "The student's answer is clear, well-structured, and covers most of the essential aspects of photosynthesis as described in the model answer. The identification of key points is straightforward.",
+          "improvements": "To achieve full marks, you should explicitly mention that photosynthesis takes place in the chloroplasts within plant cells.",
+          "key_points_covered": "Defined photosynthesis, Mentioned sunlight as energy source, Identified water and carbon dioxide as inputs, Identified sugar (glucose) and oxygen as outputs, Wrote chemical equation, Mentioned sugar provides energy for growth and repair, Mentioned oxygen is released, Mentioned energy transfer from sun to plant, Mentioned sugar molecules store sun's energy",
+          "key_points_missed": "Location of photosynthesis (chloroplasts)",
+          "maxMarks": 6,
+          "ai_provider": "gemini",
+          "timing": {
+            "ocr_ms": 0,
+            "ai_ms": 1683,
+            "total_ms": 6071
+          }
+        }
+      },
+      {
+        "question": "what is heredity",
+        "studentAnswer": "D.D\nins\n1) Photosynthesis is the process plants use to turn\nsunlight into food\nThe Formula:\nPlants take in water and Carbon Dioxide, use Sunlight\nas power, and produces Sugar (energy) and oxygen.\n6CO2 + 6H2O + light → (6H120c + 602\nKey Facts\na) Where: It happens in chloroplast\nb) Energy: It uses chlorophyll to trap sunlight\nc) Result: It gives the plant glucose to grow\nand releases oxygen for us to breathe...\nd) Provides - Sugar provides energy for repair\ne) Oxygen released from the same tiny holes CO2\nf) Overall process is energy transfer from sun to plant\ng) Sugar Molecules store sun's energy for later use.",
+        "ocrConfidence": "HIGH",
+        "evaluation": {
+          "marks": 0,
+          "feedback": "Your answer discusses photosynthesis, which is not the topic of this question. Please ensure you read the question carefully and answer what is being asked.",
+          "reasoning": "The student's answer is entirely about photosynthesis and does not address the question about heredity at all. Therefore, 0 marks are awarded.",
+          "confidence": "HIGH",
+          "confidence_reason": "The student's answer is clearly and completely unrelated to the question asked.",
+          "improvements": "To answer this question, you need to explain what heredity is, mentioning concepts like DNA, genes, chromosomes, and how traits are passed from parents to offspring.",
+          "key_points_covered": "None",
+          "key_points_missed": "Definition of heredity, DNA as blueprint, Genes as instructions, Chromosomes as storage, Passing of genetic information, Inheritance of traits, Alleles, Dominant and recessive traits",
+          "maxMarks": 4,
+          "ai_provider": "gemini",
+          "timing": {
+            "ocr_ms": 0,
+            "ai_ms": 1396,
+            "total_ms": 7468
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "1777325727373",
+    "savedAt": "2026-04-27T21:35:27.373Z",
+    "studentName": "Riya Thorat",
+    "className": "10th SSC",
+    "chapter": "Ch 1 — Life Processes",
+    "questionPaper": "unit test 2:2026-27",
+    "examType": "",
+    "subject": "Science",
+    "language": "English",
+    "totalMarks": 11,
+    "totalObtained": 4.5,
+    "ocrConfidence": "HIGH",
+    "questionCount": 2,
+    "results": [
+      {
+        "question": "what is photosynthesis",
+        "studentAnswer": "D.D\nins\n1) Photosynthesis is the process plants use to turn\nsunlight into food\nThe Formula:\nPlants take in water and Carbon Dioxide, use Sunlight\nas power, and produces Sugar (energy) and oxygen.\n6CO2 + 6H2O + light → (6H120c + 602\nKey Facts\na) Where: It happens in chloroplast\nb) Energy: It uses chlorophyll to trap sunlight\nc) Result: It gives the plant glucose to grow\nand releases oxygen for us to breathe...\nd) Provides - Sugar provides energy for repair\ne) Oxygen released from the same tiny holes CO2\nf) Overall process is energy transfer from sun to plant\ng) Sugar Molecules store sun's energy for later use.",
+        "ocrConfidence": "HIGH",
+        "evaluation": {
+          "marks": 4.5,
+          "feedback": "Your answer is very comprehensive and demonstrates a good understanding of photosynthesis. You have correctly identified the inputs, outputs, energy source, and the overall purpose of the process. Adding a bit more detail on how carbon dioxide enters the plant would have earned you full marks.",
+          "reasoning": "The student correctly defined photosynthesis, mentioned sunlight as the energy source, identified CO2 and water as inputs, and glucose/sugar and oxygen as outputs. They also provided the correct chemical equation and mentioned that it's an energy transfer from the sun. Key points covered: Definition, inputs (CO2, water), outputs (sugar, oxygen), energy source (sunlight), chemical equation, energy transfer. Key points missed: How CO2 enters the plant (tiny holes/stomata). Total key points in model answer: ~7. Key points covered by student: ~6. Marks calculation: (6/7) * 5 = 4.28, rounded to 4.5.",
+          "confidence": "HIGH",
+          "confidence_reason": "The student's answer is clear, well-structured, and covers most of the essential aspects of photosynthesis as described in the model answer and textbook.",
+          "improvements": "To achieve full marks, you could have elaborated on how carbon dioxide enters the plant, mentioning the role of stomata or tiny holes in leaves, flowers, branches, stems, and roots.",
+          "key_points_covered": "Defined photosynthesis, Mentioned sunlight as energy source, Identified inputs (water, CO2), Identified outputs (sugar/glucose, oxygen), Wrote chemical equation, Stated it's an energy transfer from sun to plant, Mentioned sugar stores sun's energy, Mentioned oxygen is released, Mentioned glucose is for growth, Mentioned chlorophyll traps sunlight, Mentioned it happens in chloroplasts",
+          "key_points_missed": "How CO2 enters the plant (stomata/tiny holes)",
+          "maxMarks": 5,
+          "ai_provider": "gemini",
+          "timing": {
+            "ocr_ms": 0,
+            "ai_ms": 1663,
+            "total_ms": 6286
+          }
+        }
+      },
+      {
+        "question": "what is heredity",
+        "studentAnswer": "D.D\nins\n1) Photosynthesis is the process plants use to turn\nsunlight into food\nThe Formula:\nPlants take in water and Carbon Dioxide, use Sunlight\nas power, and produces Sugar (energy) and oxygen.\n6CO2 + 6H2O + light → (6H120c + 602\nKey Facts\na) Where: It happens in chloroplast\nb) Energy: It uses chlorophyll to trap sunlight\nc) Result: It gives the plant glucose to grow\nand releases oxygen for us to breathe...\nd) Provides - Sugar provides energy for repair\ne) Oxygen released from the same tiny holes CO2\nf) Overall process is energy transfer from sun to plant\ng) Sugar Molecules store sun's energy for later use.",
+        "ocrConfidence": "HIGH",
+        "evaluation": {
+          "marks": 0,
+          "feedback": "The student has not answered the question about heredity. The provided answer discusses photosynthesis, which is a different topic. Please ensure you answer the specific question asked in the examination.",
+          "reasoning": "The student's answer is entirely about photosynthesis and does not address the question 'what is heredity' at all. Therefore, no points can be awarded. Total key points in model answer: 5. Key points covered by student: 0. Marks = (0/5) * 6 = 0.0",
+          "confidence": "HIGH",
+          "confidence_reason": "The student's answer is clearly and completely unrelated to the question asked.",
+          "improvements": "To answer this question, you need to explain the concept of heredity, including how traits are passed from parents to offspring, the role of DNA, genes, and chromosomes, and the concept of alleles and dominant/recessive traits.",
+          "key_points_covered": "None",
+          "key_points_missed": "Definition of heredity, Passing of genetic information, Role of DNA, Role of Genes, Role of Chromosomes, Inheritance of traits (alleles, dominant/recessive)",
+          "maxMarks": 6,
+          "ai_provider": "gemini",
+          "timing": {
+            "ocr_ms": 0,
+            "ai_ms": 1750,
+            "total_ms": 8037
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "1777319649022",
+    "savedAt": "2026-04-27T19:54:09.023Z",
+    "studentName": "arpita das",
+    "className": "10th SSC",
+    "chapter": "Ch 1 — Life Processes",
+    "questionPaper": "ut1",
+    "examType": "",
+    "subject": "Science",
+    "language": "English",
+    "totalMarks": 9,
+    "totalObtained": 4.5,
+    "ocrConfidence": "HIGH",
+    "questionCount": 2,
+    "results": [
+      {
+        "question": "what is photosynthesis",
+        "studentAnswer": "D.D\nins\n1) Photosynthesis is the process plants use to turn\nsunlight into food\nThe Formula:\nPlants take in water and Carbon Dioxide, use Sunlight\nas power, and produces Sugar (energy) and oxygen.\n6CO2 + 6H2O + light → (6H120c + 602\nKey Facts\na) Where: It happens in chloroplast\nb) Energy: It uses chlorophyll to trap sunlight\nc) Result: It gives the plant glucose to grow\nand releases oxygen for us to breathe...\nd) Provides - Sugar provides energy for repair\ne) Oxygen released from the same tiny holes CO2\nf) Overall process is energy transfer from sun to plant\ng) Sugar Molecules store sun's energy for later use.",
+        "ocrConfidence": "HIGH",
+        "evaluation": {
+          "marks": 4.5,
+          "feedback": "Your answer is very comprehensive and well-structured. You have correctly identified the core process, inputs, outputs, and the energy transfer involved. Adding a sentence about carbon dioxide entering through stomata would make it even more complete.",
+          "reasoning": "The student correctly defined photosynthesis as plants using sunlight to make food. They mentioned the inputs (water, CO2, sunlight) and outputs (sugar, oxygen). They also provided the correct chemical equation and several key facts about the process, including the location (chloroplasts), energy trapping (chlorophyll), purpose of glucose, release of oxygen, and energy transfer. The model answer's key points are: 1. Definition of photosynthesis, 2. Inputs (CO2, water, sunlight), 3. Outputs (glucose, oxygen), 4. Chemical equation, 5. Energy transfer from sun to plant, 6. Glucose used for growth/repair, 7. Oxygen released. The student covered all these points. The model answer also mentions CO2 entering through tiny holes, which the student touches upon with point (e). The student's answer is very close to the model answer's content. Key points covered: Defined photosynthesis, Mentioned sunlight as energy source, Mentioned CO2 and water as inputs, Mentioned sugar (glucose) and oxygen as outputs, Wrote chemical equation, Mentioned energy transfer from sun to plant, Mentioned glucose for growth and repair, Mentioned oxygen release. Key points missed: Explicit mention of CO2 entering through stomata (though implied by point e). Calculation: 8/9 key points covered. (8/9) * 5 = 4.44, rounded to 4.5.",
+          "confidence": "HIGH",
+          "confidence_reason": "The student's answer directly addresses the question and covers most of the essential components of photosynthesis as described in the textbook and model answer. The structure and detail are excellent.",
+          "improvements": "You could explicitly mention that carbon dioxide enters the plant through tiny pores called stomata, which are usually found on the leaves.",
+          "key_points_covered": "Defined photosynthesis, Mentioned sunlight as energy source, Mentioned CO2 and water as inputs, Mentioned sugar (glucose) and energy as outputs, Mentioned oxygen as output, Wrote chemical equation, Mentioned energy transfer from sun to plant, Mentioned glucose for growth and repair, Mentioned oxygen release, Mentioned chlorophyll traps sunlight, Mentioned chloroplasts as location",
+          "key_points_missed": "None — all key points covered",
+          "maxMarks": 5,
+          "ai_provider": "gemini",
+          "timing": {
+            "ocr_ms": 0,
+            "ai_ms": 3252,
+            "total_ms": 5872
+          }
+        }
+      },
+      {
+        "question": "what is heredity",
+        "studentAnswer": "D.D\nins\n1) Photosynthesis is the process plants use to turn\nsunlight into food\nThe Formula:\nPlants take in water and Carbon Dioxide, use Sunlight\nas power, and produces Sugar (energy) and oxygen.\n6CO2 + 6H2O + light → (6H120c + 602\nKey Facts\na) Where: It happens in chloroplast\nb) Energy: It uses chlorophyll to trap sunlight\nc) Result: It gives the plant glucose to grow\nand releases oxygen for us to breathe...\nd) Provides - Sugar provides energy for repair\ne) Oxygen released from the same tiny holes CO2\nf) Overall process is energy transfer from sun to plant\ng) Sugar Molecules store sun's energy for later use.",
+        "ocrConfidence": "HIGH",
+        "evaluation": {
+          "marks": 0,
+          "feedback": "Your answer describes photosynthesis, which is a different topic from heredity. Please ensure you answer the specific question asked in the examination.",
+          "reasoning": "The student's answer is entirely about photosynthesis and does not address the question 'what is heredity' at all. Therefore, no key points related to heredity were covered. Total key points in the model answer are 3 (DNA, Genes, Chromosomes) plus the mechanism of inheritance. Since none of these were mentioned, the student gets 0 marks.",
+          "confidence": "HIGH",
+          "confidence_reason": "The student's answer is clearly and completely off-topic for the question asked.",
+          "improvements": "To answer the question about heredity, you need to explain how traits are passed from parents to offspring, mentioning concepts like DNA, genes, and chromosomes.",
+          "key_points_covered": "None",
+          "key_points_missed": "Definition of heredity, DNA as the blueprint, Genes as instructions, Chromosomes as storage, Passing of traits from parents to offspring, Alleles, Dominant and Recessive traits",
+          "maxMarks": 4,
+          "ai_provider": "gemini",
+          "timing": {
+            "ocr_ms": 0,
+            "ai_ms": 2379,
+            "total_ms": 8253
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "1777318774628",
+    "savedAt": "2026-04-27T19:39:34.628Z",
+    "studentName": "Saniya Nehre",
+    "className": "10th SSC",
+    "chapter": "Ch 5 — Light",
+    "questionPaper": "ut2",
+    "examType": "",
+    "subject": "Science",
+    "language": "English",
+    "totalMarks": 10,
+    "totalObtained": 4,
+    "ocrConfidence": "HIGH",
+    "questionCount": 2,
+    "results": [
+      {
+        "question": "what is photosynthesis",
+        "studentAnswer": "D.D\nins\n1) Photosynthesis is the process plants use to turn\nsunlight into food\nThe Formula:\nPlants take in water and Carbon Dioxide, use Sunlight\nas power, and produces Sugar (energy) and oxygen.\n6CO2 + 6H2O + light → (6H120c + 602\nKey Facts\na) Where: It happens in chloroplast\nb) Energy: It uses chlorophyll to trap sunlight\nc) Result: It gives the plant glucose to grow\nand releases oxygen for us to breathe...\nd) Provides - Sugar provides energy for repair\ne) Oxygen released from the same tiny holes CO2\nf) Overall process is energy transfer from sun to plant\ng) Sugar Molecules store sun's energy for later use.",
+        "ocrConfidence": "HIGH",
+        "evaluation": {
+          "marks": 4,
+          "feedback": "Your answer is very good and covers most of the key aspects of photosynthesis. You've correctly identified the inputs, outputs, and the role of sunlight. The formula is also accurate. You've also provided excellent key facts that demonstrate a strong understanding of the process. The only minor point is that the question asks 'what is photosynthesis', and while your answer explains it thoroughly, a more direct, concise definition at the beginning could be beneficial. For example, 'Photosynthesis is the process by which green plants and some other organisms use sunlight to synthesize foods with the help of chlorophyll pigment.' However, your explanation is comprehensive and well-structured.",
+          "reasoning": "The student correctly identifies the core definition of photosynthesis as plants turning sunlight into food. They accurately list the inputs (water, carbon dioxide, light energy) and outputs (sugar, oxygen). The chemical formula is correct. The 'Key Facts' section is particularly strong, covering the location (chloroplasts), the role of chlorophyll, the purpose of glucose, the release of oxygen, and the overall energy transfer. The student demonstrates a deep understanding of the process. The only minor omission is a very concise, direct definition at the very start, but the subsequent explanation is thorough.",
+          "confidence": "HIGH",
+          "confidence_reason": "The student's answer is comprehensive and accurate, covering all essential aspects of photosynthesis. The inclusion of the formula and detailed key facts demonstrates a strong grasp of the topic.",
+          "improvements": "Consider starting with a more direct, concise definition of photosynthesis before elaborating on the process. For example, 'Photosynthesis is the process by which green plants and some other organisms use sunlight to synthesize foods with the help of chlorophyll pigment.'",
+          "key_points_covered": "See reasoning for details",
+          "key_points_missed": "See reasoning for details",
+          "maxMarks": 5,
+          "ai_provider": "gemini",
+          "timing": {
+            "ocr_ms": 0,
+            "ai_ms": 171911,
+            "total_ms": 175403
+          }
+        }
+      },
+      {
+        "question": "what is heridity",
+        "studentAnswer": "D.D\nins\n1) Photosynthesis is the process plants use to turn\nsunlight into food\nThe Formula:\nPlants take in water and Carbon Dioxide, use Sunlight\nas power, and produces Sugar (energy) and oxygen.\n6CO2 + 6H2O + light → (6H120c + 602\nKey Facts\na) Where: It happens in chloroplast\nb) Energy: It uses chlorophyll to trap sunlight\nc) Result: It gives the plant glucose to grow\nand releases oxygen for us to breathe...\nd) Provides - Sugar provides energy for repair\ne) Oxygen released from the same tiny holes CO2\nf) Overall process is energy transfer from sun to plant\ng) Sugar Molecules store sun's energy for later use.",
+        "ocrConfidence": "HIGH",
+        "evaluation": {
+          "marks": 0,
+          "feedback": "The student has not answered the question about heredity. The provided answer discusses photosynthesis, which is a different topic. Therefore, no marks can be awarded for this question.",
+          "reasoning": "The question asked for the definition of heredity. The student's answer is entirely about photosynthesis. None of the key points related to heredity were covered. Therefore, 0 marks are awarded.",
+          "confidence": "HIGH",
+          "confidence_reason": "The student's answer is clearly and completely unrelated to the question asked.",
+          "improvements": "To answer this question, the student needs to define heredity and explain the basic mechanisms of how traits are passed from parents to offspring, including concepts like DNA, genes, and chromosomes.",
+          "key_points_covered": "None",
+          "key_points_missed": "Definition of heredity, DNA, Genes, Chromosomes, Alleles, Dominant traits, Recessive traits",
+          "maxMarks": 5,
+          "ai_provider": "gemini",
+          "timing": {
+            "ocr_ms": 0,
+            "ai_ms": 1970,
+            "total_ms": 177375
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "1777307088549",
+    "savedAt": "2026-04-27T16:24:48.549Z",
+    "studentName": "Shravan",
+    "className": "10th SSC",
+    "chapter": "Ch 1 — Motion",
+    "questionPaper": "ut1",
+    "examType": "",
+    "subject": "Physics",
+    "language": "English",
+    "totalMarks": 8,
+    "totalObtained": 0,
+    "ocrConfidence": "HIGH",
+    "questionCount": 2,
+    "results": [
+      {
+        "question": "what is photosynthesis",
+        "studentAnswer": "D.D\n1) Photosynthesis is the process plants use to turn\nsunlight into food\n\nThe Formula:\nPlants take in water and Carbon Dioxide, use Sunlight\nas power, and produces Sugar (energy) and oxygen.\n\n6CO₂ + 6H₂O + Light → (C₆H₁₂O₆ + CO₂\n\nKey facts\n\na) Where: It happens in chloroplast\nb) Energy: It uses chlorophyll to trap sunlight\nc) Result: It gives the plant glucose to grow\nand releases oxygen for us to breathe...\nd) Provides- Sugar provides energy for repair\ne) Oxygen released from the same tiny holes CO₂\nf) Overall process is energy transfer from sun to plant\ng) Sugar Molecules store sun's energy for later use.",
+        "ocrConfidence": "HIGH",
+        "evaluation": {
+          "marks": 0,
+          "maxMarks": 5,
+          "feedback": "AI could not evaluate this answer. Please review manually.",
+          "reasoning": "AI call failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite-lite:generateContent: [404 Not Found] models/gemini-2.5-flash-lite-lite is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
+          "confidence": "LOW",
+          "confidence_reason": "Parse or network failure",
+          "improvements": "Please re-submit or review the answer sheet manually.",
+          "key_points_covered": "Unable to determine",
+          "key_points_missed": "Unable to determine",
+          "ai_provider": "gemini",
+          "_fallback": true,
+          "timing": {
+            "ocr_ms": 0,
+            "ai_ms": 125,
+            "total_ms": 2824
+          }
+        }
+      },
+      {
+        "question": "what is photosynthesis",
+        "studentAnswer": "e.p\nns\ni) Photosynthesis is the process plants use to turn\nsunlight into food\nThe Formula:\nPlants take in water and Carbon Dioxide, use sunlight\nas power, and produces Sugar (energy) and oxygen.\n6 CO₂ + 6H₂O + light → ( C₆H₁₂O₆ + 60₂\n\nKey Facts\na) Where: It happens in chloroplast\nb) Energy: It uses chlorophyll to trap sunlight\nc) Result: It gives the plant glucose to grow\nand releases oxygen for us to breathe.\nd) Provides - Sugar provides energy for repair\ne) Oxygen released from the same tiny holes CO₂\nf) Overall process is energy transfer from sun to plant\ng) Sugar Molecules store sun's energy for later use.",
+        "ocrConfidence": "HIGH",
+        "evaluation": {
+          "marks": 0,
+          "maxMarks": 3,
+          "feedback": "AI could not evaluate this answer. Please review manually.",
+          "reasoning": "AI call failed: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite-lite:generateContent: [404 Not Found] models/gemini-2.5-flash-lite-lite is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.",
+          "confidence": "LOW",
+          "confidence_reason": "Parse or network failure",
+          "improvements": "Please re-submit or review the answer sheet manually.",
+          "key_points_covered": "Unable to determine",
+          "key_points_missed": "Unable to determine",
+          "ai_provider": "gemini",
+          "_fallback": true,
+          "timing": {
+            "ocr_ms": 0,
+            "ai_ms": 127,
+            "total_ms": 5613
+          }
+        }
+      }
+    ]
+  },
+  {
+    "id": "1777306325556",
+    "savedAt": "2026-04-27T16:12:05.556Z",
+    "studentName": "Meera Patil",
+    "className": "10th SSC",
+    "chapter": "Ch 1 — Life Processes",
+    "questionPaper": "unit test-1",
+    "examType": "",
+    "subject": "Science",
+    "language": "English",
+    "totalMarks": 10,
+    "totalObtained": 10,
+    "ocrConfidence": "HIGH",
+    "questionCount": 2,
+    "results": [
+      {
+        "question": "what is photosynthesis",
+        "studentAnswer": "Q.D\nns\n1) Photosynthesis is the process plants use to turn\nsunlight into food\n\nThe Formula:\nPlants take in Water and Carbon Dioxide, use Sunlight\nas power, and produces Sugar (energy) and Oxygen.\n\n6CO₂ + 6H₂O + light -> C₆H₁₂O₆ + 6O₂\n\nKey facts\na) Where: It happens in chloroplast\nb) Energy: It uses chlorophyll to trap Sunlight\nc) Result: It gives the plant glucose to grow\nand releases oxygen for us to breathe...\nd) Provides - Sugar provides energy for repair\ne) Oxygen released from the same tiny holes CO₂\nf) Overall process is energy transfer from sun to plant\ng) Sugar molecules store sun's energy for later use.",
+        "ocrConfidence": "HIGH",
+        "evaluation": {
+          "marks": 5,
+          "feedback": "Excellent answer! You have comprehensively covered all the essential aspects of photosynthesis, including its definition, reactants, products, energy source, chemical equation, location, and significance. The organization into 'Key facts' is also commendable.",
+          "reasoning": "The student has provided a complete and accurate answer to the question 'what is photosynthesis'.\n1.  **Definition:** Clearly defined photosynthesis as the process plants use water, carbon dioxide, and sunlight to produce sugar and oxygen.\n2.  **Reactants & Products:** Explicitly listed water, carbon dioxide as reactants and sugar (energy), oxygen as products.\n3.  **Energy Source:** Identified sunlight as the power source.\n4.  **Chemical Equation:** Provided the correct balanced chemical equation (6CO₂ + 6H₂O + light -> C₆H₁₂O₆ + 6O₂).\n5.  **Location & Mechanism:** Stated it happens in chloroplasts and chlorophyll traps sunlight.\n6.  **Gas Exchange:** Mentioned oxygen is released from the same tiny holes CO2 enters (implying stomata).\n7.  **Purpose of Sugar:** Explained sugar (glucose) is for growth, repair, and stores sun's energy for later use.\n8.  **Purpose of Oxygen:** Stated oxygen is released for breathing.\n9.  **Energy Transfer:** Highlighted the overall process as energy transfer from the sun to the plant, stored in sugar molecules.\nAll 10 key points derived from the model answer are present in the student's response. Therefore, full marks are awarded.",
+          "confidence": "HIGH",
+          "confidence_reason": "The student's answer directly addresses and accurately covers every single key point identified from the provided model answer and textbook reference for a comprehensive understanding of photosynthesis.",
+          "improvements": "None. The answer is complete and accurate.",
+          "key_points_covered": "Defined photosynthesis as plants turning sunlight into food using water and carbon dioxide to produce sugar and oxygen, Mentioned reactants: Water and Carbon Dioxide, Mentioned energy source: Sunlight, Mentioned products: Sugar (energy) and Oxygen, Provided correct chemical equation: 6CO₂ + 6H₂O + light -> C₆H₁₂O₆ + 6O₂, Stated location: Chloroplasts, and mechanism: chlorophyll traps sunlight, Mentioned oxygen released from the same tiny holes as CO₂ entry, Explained purpose of sugar: provides glucose for growth, energy for repair, and stores sun's energy for later use, Explained purpose of oxygen: released for us to breathe, Stated overall process is energy transfer from sun to plant, stored in sugar molecules",
+          "key_points_missed": "None — all key points covered",
+          "maxMarks": 5,
+          "ai_provider": "gemini",
+          "timing": {
+            "ocr_ms": 0,
+            "ai_ms": 15900,
+            "total_ms": 21326
+          }
+        }
+      },
+      {
+        "question": "what is photosynthesis",
+        "studentAnswer": "D\nens\ni) Photosynthesis is the process plants use to turn\nsunlight into food\nThe Formula:\nPlants take in Water and Carbon Dioxide, use Sunlight\nas power, and produces Sugar (energy) and oxygen.\n6CO₂ + 6H₂O + light → C₆H₁₂O₆ + 6O₂\nKey facts\na) Where: It happens in chloroplast\nb) Energy: It uses chlorophyll to trap sunlight\nc) Result: It gives the plant glucose to grow\nand releases oxygen for us to breathe.\nd) Provides - Sugar provides energy for repair\ne) Oxygen released from the same tiny holes CO₂\nf) Overall process is energy transfer from sun to plant\ng) Sugar Molecules store sun's energy for later use.",
+        "ocrConfidence": "HIGH",
+        "evaluation": {
+          "marks": 5,
+          "feedback": "Excellent answer! You have comprehensively defined photosynthesis, provided the correct chemical equation, and elaborated on all essential aspects including inputs, outputs, energy source, location of gas exchange, and the fate of the products. Your answer is well-structured and accurate.",
+          "reasoning": "The model answer contains 8 key points. The student's answer covers all 8 key points: \n1. Definition/Core Process: Covered by 'Photosynthesis is the process plants use to turn sunlight into food' and 'Plants take in Water and Carbon Dioxide, use Sunlight as power, and produces Sugar (energy) and oxygen.'\n2. Inputs: Covered by 'Water and Carbon Dioxide'.\n3. Energy Source: Covered by 'Sunlight as power'.\n4. Outputs: Covered by 'Sugar (energy) and oxygen'.\n5. Chemical Equation: Covered by '6CO₂ + 6H₂O + light → C₆H₁₂O₆ + 6O₂'.\n6. Location of CO2 entry/O2 release: Covered by 'Oxygen released from the same tiny holes CO₂'.\n7. Purpose of Sugar: Covered by 'gives the plant glucose to grow', 'Sugar provides energy for repair', and 'Sugar Molecules store sun's energy for later use.'\n8. Overall Energy Transfer: Covered by 'Overall process is energy transfer from sun to plant'.\nAll 8 points are accurately presented. Therefore, full marks are awarded.",
+          "confidence": "HIGH",
+          "confidence_reason": "All key points from the model answer have been clearly identified and matched with the student's response. The evaluation criteria have been strictly applied.",
+          "improvements": "None. The answer is comprehensive and accurate, covering all aspects expected for full marks.",
+          "key_points_covered": "Defined photosynthesis as plants turning sunlight into food, Mentioned inputs (Water, Carbon Dioxide), Mentioned energy source (Sunlight), Mentioned outputs (Sugar/Glucose, Oxygen), Provided correct chemical equation, Stated oxygen released from tiny holes (where CO2 entered), Explained purpose of sugar (growth, repair, stored energy), Stated overall process is energy transfer from sun to plant",
+          "key_points_missed": "None — all key points covered",
+          "maxMarks": 5,
+          "ai_provider": "gemini",
+          "timing": {
+            "ocr_ms": 0,
+            "ai_ms": 36562,
+            "total_ms": 64639
+          }
+        }
+      }
+    ]
+  },
+  {
     "id": "1777207382807",
     "savedAt": "2026-04-26T12:43:02.807Z",
     "studentName": "Ankit Sharma",
