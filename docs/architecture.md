@@ -1,89 +1,77 @@
- AI Exam Evaluator — Architecture 
-
-1. Architecture Overview
-The AI Exam Evaluator follows a client–server architecture to automate the evaluation of handwritten exam answers using OCR and AI.
-The system is organized into three logical layers:
-Frontend (React.js): Handles user interaction and result display
-Backend (Node.js + Express): Manages OCR, AI evaluation, and data flow
-OCR & AI Services: Perform handwriting recognition and answer evaluation
-This layered approach ensures clear separation of responsibilities, reliability, and explainable evaluation results.
-
-2. High-Level Architecture Flow
+AI Exam Evaluator – System Architecture
+________________________________________
+Architecture Overview
+The AI Exam Evaluator follows a client–server architecture with clearly separated layers.
+The design emphasizes:
+•	Simplicity
+•	Reliability
+•	Explainability
+•	Ease of debugging
+Rather than over engineering, the system was designed to clearly demonstrate the OCR → AI → evaluation pipeline.
+________________________________________
+High Level Flow
 Teacher
-  ↓
-React Frontend (3-Step Wizard)
-  ↓
-Node.js Backend (REST API)
-  ├─ OCR (Tesseract.js)
-  ├─ AI Evaluation (Sarvam AI)
-  └─ Backup AI (Google Gemini)
-  ↓
+↓
+React Frontend (3 Step Wizard)
+↓
+Node.js + Express Backend
+├── OCR Extraction
+├── AI Evaluation
+│ ├── Sarvam AI (Primary)
+│ └── Google Gemini (Fallback)
+↓
 Evaluation Result (JSON)
-  ↓
-React Frontend (Marks, Feedback, Reasoning)
-
-3. Frontend Layer (React.js)
-Purpose
-Provides a simple, guided workflow for teachers using a 3-step wizard, reducing user errors and training needs.
+↓
+Frontend Display (Marks, Feedback, Confidence)
+________________________________________
+Frontend Layer (React.js)
+Responsibilities
+•	Collect student and exam information
+•	Allow reuse of templates
+•	Upload handwritten answer images
+•	Display evaluation results clearly
+•	Show confidence and warnings
+•	Provide access to evaluation history
 Key Components
-Step1Form: Collects subject, question, model answer, and maximum marks
-Step2Upload: Uploads handwritten answer sheet with image preview
-Step3Results: Displays marks, feedback, reasoning, confidence, and improvements
-StepBar: Shows progress across steps
+•	Step1Form: Exam details, questions, model answers
+•	Step2Upload: Image upload and preview
+•	Step3Results: Evaluation output and confidence
+•	StepBar: Step progress indicator
+The 3 step flow was chosen to reduce confusion and match how teachers actually evaluate answers.
+________________________________________
+Backend Layer (Node.js + Express)
+The backend acts as the orchestration layer.
 Responsibilities
-Input validation
-Image preview handling
-API communication using Axios
-Clear presentation of explainable AI output
-
-4. Backend Layer (Node.js + Express)
-Purpose
-Acts as the central orchestration layer, connecting frontend, OCR, and AI services.
-Responsibilities
-Accepts multipart form data (image + text)
-Saves uploaded answer sheets
-Extracts text using OCR
-Builds structured AI evaluation prompts
-Handles AI failures and fallbacks
-Returns clean JSON responses
-APIs
-POST /api/ocr/extract – Extracts text using Tesseract.js
-POST /api/full-evaluate – Complete OCR → AI → evaluation pipeline
-
-5. OCR Layer (Tesseract.js)
-Free, open-source, and offline
-No external API cost
-Suitable for clear handwritten or printed answers
-Integrated directly with Node.js
-Edge cases handled:
-Unreadable or blank answers return safe default evaluation (0 marks with guidance).
-
-6. AI Evaluation Layer
-Primary AI: Sarvam AI (Indian academic context)
-Backup AI: Google Gemini (used if Sarvam fails)
-Evaluation Features
-Fair and partial marking
-Strict JSON-only responses
-Explainable reasoning
-Confidence scoring
-Improvement suggestions
-
-7. Explainable AI Design
-Instead of only marks, the system provides:
-Reasoning for marks awarded
-Key points covered and missed
-Actionable improvement suggestions
-Confidence level with explanation
-This ensures transparency, trust, and usability for teachers.
-
-8. Architectural Strengths
-Modular and layered design
-Clear end-to-end data flow
-Explainable AI implementation
-Cost-effective (free OCR)
-Reliable with AI fallback
-Easy to extend for future enhancements
-
-9. Summary
-The AI Exam Evaluator architecture is simple, reliable, transparent, and scalable, making it suitable for real-world educational evaluation and demonstration in academic or judging environments.
-
+•	Handle file uploads
+•	Validate inputs
+•	Perform OCR extraction
+•	Build AI evaluation prompts
+•	Handle AI failures gracefully
+•	Validate and sanitize AI output
+•	Track templates, history, and basic metrics
+________________________________________
+OCR Layer (Key Learning Area)
+OCR was initially implemented using Tesseract.js.
+During testing, several issues were observed:
+•	Language data loading failures
+•	Inconsistent extraction quality
+•	Increased debugging overhead
+To improve stability, OCR extraction was shifted to Gemini Vision, which reduced setup issues and provided more consistent results.
+OCR output is treated as an input signal, not final truth.
+________________________________________
+AI Evaluation Layer
+•	Primary: Sarvam AI
+•	Fallback: Google Gemini
+AI is instructed to:
+•	Return structured JSON only
+•	Explain marks clearly
+•	Identify key points covered/missed
+•	Provide confidence level
+Fallback ensures the system continues working even if one AI fails.
+________________________________________
+Architectural Strengths
+•	Clear separation of concerns
+•	Automatic fallback handling
+•	Explainable AI output
+•	Designed with future extensions in mind
+•	Simple enough to debug and reason about
